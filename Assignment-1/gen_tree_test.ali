@@ -1,0 +1,74 @@
+V "GNAT Lib v4.6"
+M P W=b
+P SS ZX
+R nnnvnnnnnnvnnnnnnnnnnvnnnvvnnnnvnnnnnnnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U gen_tree_test%b	gen_tree_test.adb	13e0acfd NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W gen_tree%s		gen_tree.adb		gen_tree.ali
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20110715060658 3ffc8e18
+D a-except.ads		20110715060658 0c711ac9
+D a-finali.ads		20110715060658 e5e85fa4
+D a-filico.ads		20110715060658 872dc219
+D a-inteio.ads		20110715060658 f64b89a4
+D a-ioexce.ads		20110715060658 8b9de6cd
+D a-stream.ads		20110715060658 2ca4ee37
+D a-tags.ads		20110715060658 c7695348
+D a-textio.ads		20110715060658 386df5d4
+D a-tiinio.ads		20110715060658 aa04e5d6
+D a-unccon.ads		20110715060658 f9eb8f06
+D gen_tree.ads		20121009203055 867a0a45
+D gen_tree.adb		20121009201945 85434ae6
+D gen_tree_test.adb	20121009204812 5bbcdac8
+D interfac.ads		20110715060702 f77d8799
+D i-cstrea.ads		20110715060702 1bd72c32
+D system.ads		20110715060713 981f3aca
+D s-crtl.ads		20110715060704 ac77b159
+D s-exctab.ads		20110715060704 66e51330
+D s-ficobl.ads		20110715060704 443b9d66
+D s-finimp.ads		20110715060704 46853fe8
+D s-finroo.ads		20110715060704 dbb860c9
+D s-parame.ads		20110715060705 9c5d83fa
+D s-secsta.ads		20110715060705 eea35a36
+D s-soflin.ads		20110715060705 9414c974
+D s-stache.ads		20110715060705 596fc1b4
+D s-stalib.ads		20110715060705 c4241c00
+D s-stoele.ads		20110715060705 facd7d98
+D s-stoele.adb		20110715060705 afc5dc80
+D s-stratt.ads		20110715060705 aedef97e
+D s-traent.ads		20110715060707 5221ee41
+D s-unstyp.ads		20110715060707 6ae15c76
+D s-wchcon.ads		20110715060708 bfeb2e3d
+X 1 ada.ads
+16K9*Ada 19e8 14|4r6 4r23 5r6 5r31
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[10|45] 14|5w10 5r35
+X 9 a-textio.ads
+49K13*Text_IO 472e16 14|4w10 4r27
+209U14*Put 14|18s5 22s5 24s5
+X 12 gen_tree.ads
+10k9*Gen_Tree 37e13 14|3w6 9r30
+11R9 Node_Type
+12P9 Node_Ptr(11R9[14|9]) 14|12r16[9] 15r11[9]
+14V13 Create_Node{12P9[14|9]} 14|17s23[9] 20s27[9] 20s52[9]
+16V13 Get_Data{character} 14|18s11[9] 22s11[9] 24s11[9]
+19V13 Get_Left_Child{12P9[14|9]} 14|21s12[9]
+20U14 Set_Left_Child 14|20s5[9]
+22V13 Get_Right_Child{12P9[14|9]} 14|23s12[9]
+X 14 gen_tree_test.adb
+7U11*Gen_Tree_Test 7b11 26l5 26t18
+9K13 Char_Tree[12|10] 10r9
+11R10 Tree 13e15 14r17
+12p9 Root{12|12P9[9]} 17m15 18r32 19r22 21r39
+14r5 Test_Tree{11R10} 17m5 18r22 19r12 21r29
+15p5 Ptr{12|12P9[9]} 19m5 20r22 21m5 22r22 23m5 23r30 24r22
+

@@ -1,0 +1,76 @@
+V "GNAT Lib v4.6"
+P SS ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
+
+U tree_expression%b	tree_expression.adb	e7fd115a NE OO PK
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+
+U tree_expression%s	tree_expression.ads	6a5b8038 EE OO PK KU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.numerics%s	a-numeri.ads		a-numeri.ali
+W ada.numerics.aux%s	a-numaux.adb		a-numaux.ali
+W ada.numerics.generic_elementary_functions%s
+W gen_tree%s		gen_tree.adb		gen_tree.ali  AD
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.exn_llf%s	s-exnllf.adb		s-exnllf.ali
+W system.fat_flt%s	s-fatflt.ads		s-fatflt.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20110715060658 3ffc8e18
+D a-except.ads		20110715060658 0c711ac9
+D a-numeri.ads		20110715060658 bb51c45a
+D a-numaux.ads		20110715060658 243fe0b7
+D a-ngelfu.ads		20110715060658 47731de9
+D a-ngelfu.adb		20110715060658 d18bc0c2
+D a-unccon.ads		20110715060658 f9eb8f06
+D gen_tree.ads		20121009203055 867a0a45
+D gen_tree.adb		20121009201945 85434ae6
+D system.ads		20110715060713 981f3aca
+D s-exctab.ads		20110715060704 66e51330
+D s-exnllf.ads		20110715060704 81841eef
+D s-fatflt.ads		20110715060704 11beb392
+D s-fatgen.ads		20110715060704 9267ca45
+D s-parame.ads		20110715060705 9c5d83fa
+D s-secsta.ads		20110715060705 eea35a36
+D s-soflin.ads		20110715060705 9414c974
+D s-stache.ads		20110715060705 596fc1b4
+D s-stalib.ads		20110715060705 c4241c00
+D s-stoele.ads		20110715060705 facd7d98
+D s-stoele.adb		20110715060705 afc5dc80
+D s-traent.ads		20110715060707 5221ee41
+D tree_expression.ads	20121009214119 ab529794
+D tree_expression.adb	20121009211456 4caf86ce
+X 1 ada.ads
+16K9*Ada 19e8 23|7r6 14r35
+X 3 a-numeri.ads
+16K13*Numerics 32e17 23|7r10 14r39
+X 5 a-ngelfu.ads
+17F9 Float_Type 23|15r7
+19k22*Generic_Elementary_Functions 73e46 23|7w19 14r48
+X 8 gen_tree.ads
+10k9*Gen_Tree 37e13 23|6w6 13r42
+11R9*Node_Type
+12P9*Node_Ptr(11R9[23|13]) 23|17r58[13]
+X 23 tree_expression.ads
+8K9*Tree_Expression 27l5 27e20 24|1b14 28l5 28t20
+10i4*String_Size{natural} 11r40
+11A12*Tree_String{string}<integer> 13r51
+13K12*Binary_Expression_Tree[8|10] 17r35
+14K12*Float_Functions[5|19]
+17P12*Expression_Node_Ptr{8|12P9[13]} 19r59 21r30 23r36 24r37 25r38 24|3r62
+. 8r32 13r38 18r39 23r40
+19V13*Construct{17P12} 19>24 24|3b14 6l9 6t18
+19s24 Expression_String{string} 24|3b26
+21V13*Evaluate{float} 21>23 24|8b14 11l9 11t17
+21p23 Node{17P12} 24|8b25
+23V13*Infix_Notation{string} 23>29 24|13b14 16l9 16t23
+23p29 Node{17P12} 24|13b31
+24V13*Prefix_Notation{string} 24>30 24|18b14 21l9 21t24
+24p30 Node{17P12} 24|18b32
+25V13*Postfix_Notation{string} 25>31 24|23b14 26l9 26t25
+25p31 Node{17P12} 24|23b33
+

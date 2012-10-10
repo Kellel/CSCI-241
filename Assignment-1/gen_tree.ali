@@ -1,0 +1,50 @@
+V "GNAT Lib v4.6"
+P ZX
+R nnnvnnnnnnvnnnnnnnnnnvnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U gen_tree%b		gen_tree.adb		033940a3 NE OO PK GE
+
+U gen_tree%s		gen_tree.ads		867a0a45 BN EE NE OO PK GE
+
+D gen_tree.ads		20121009203055 867a0a45
+D gen_tree.adb		20121009201945 85434ae6
+D system.ads		20110715060713 981f3aca
+X 1 gen_tree.ads
+8+9 Item_Type 14r32 16r47 17r48 33r21 2|3r35 10r50 19r50
+10k9*Gen_Tree 8z9 37l5 37e13 2|1b14 79l5 79t13
+11R9*Node_Type 12r28 32c9 36e14 2|6r25
+12P9*Node_Ptr(11R9) 14r69 14r86 16r30 17r31 19r36 19r53 20r37 20r60 22r37
+. 22r54 23r38 23r62 25r39 26r40 27r41 34r21 35r21 2|3r72 3r89 4r20 10r32
+. 19r33 28r38 28r56 37r39 37r62 46r39 46r57 55r53 64r41 69r42 74r43
+14V13*Create_Node{12P9} 14>25 14>43 14>55 2|3b14 8l9 8t20
+14*25 Data{8+9} 2|3b28 6r37
+14p43 Left_Child{12P9} 2|3b46 6r43
+14p55 Right_Child{12P9} 2|3b58 6r55
+16V13*Get_Data{8+9} 16>23 2|10b14 17l9 17t17
+16p23 Node{12P9} 2|10b25 12r12 13r20
+17U14*Set_Data 17>24 17>41 2|19b15 26l9 26t17
+17p24 Node{12P9} 2|19b26 21r12 22m13
+17*41 Item{8+9} 2|19b43 22r26
+19V13*Get_Left_Child{12P9} 19>29 2|28b14 35l9 35t23
+19p29 Node{12P9} 2|28b31 30r12 31r20
+20U14*Set_Left_Child 20>30 20>47 2|37b15 44l9 44t23
+20p30 Node{12P9} 2|37b32 39r12 40m13
+20p47 Left_Child{12P9} 2|37b49 39r29 40r32
+22V13*Get_Right_Child{12P9} 22>30 2|46b14 53l9 53t24
+22p30 Node{12P9} 2|46b32 48r12 49r20
+23U14*Set_Right_Child 23>31 23>48 2|55b15 62l9 62t24
+23p31 Node{12P9} 2|55b33 57r12 58m13
+23p48 Right_Child{12P9} 2|55b39 57r29 58r33
+25V13*Inorder_Traversal{string} 25>32 2|64b14 67l9 67t26
+25p32 Node{12P9} 2|64b34
+26V13*Preorder_Traversal{string} 26>33 2|69b14 72l9 72t27
+26p33 Node{12P9} 2|69b35
+27V13*Postorder_Traversal{string} 27>34 2|74b14 77l9 77t28
+27p34 Node{12P9} 2|74b36
+29X4*Node_Error 2|15r19 24r19 33r19 42r19 51r19 60r19
+33*7 Data{8+9} 2|13r25 22m18
+34p7 Left_Child{12P9} 2|30r17 31r25 40m18
+35p7 Right_Child{12P9} 2|48r17 49r25 58m18
+X 2 gen_tree.adb
+4p9 New_Node{1|12P9} 6m9 7r16
+

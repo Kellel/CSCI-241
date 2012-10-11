@@ -8,8 +8,11 @@ package body Tree_Expression is
     end To_String;
 
     function Construct ( Expression_String : String ) return Expression_Node_Ptr is
-        type Number_Type is ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-        type Expression_Type is ( '+', '-', '*', '/' );
+        type Number_Set
+    	type Number_Type is ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        type Operator_Set is array (Character) of Boolean;
+	Operators : constant Operator_Set := ( '+' => True, '-' => True, '*' => True, '/' => True, others => False);
+        -- subtype Expression_Type is Character ( '+', '-', '*', '/' );
         -- Recursive function to parse an Expression_String
         -- based on the assumption that you can use a range as an index
         -- if ( ) remove the parens and send the inside stuff back into recursion
@@ -25,8 +28,8 @@ package body Tree_Expression is
                     Paren := Paren + 1;
                 elsif Expression_String (I) = '(' then
                     Paren := Paren + 1;
-                elsif Paren = 1 and (Expression_String (I) in Expression_Type) then
-                    return Gen_Tree.Create_Node ( To_String (Expression_String(I)), construct ( Expression_String(First .. (I - 1))), construct ( Expression_String ((I + 1) .. Last)));
+                elsif Paren = 1 and Operators(Expression_String(I))  then
+                    return GT.Create_Node (To_String(Expression_String(I)), construct(Expression_String(First .. (I-1))), construct(Expression_String((I + 1) .. Last)));
                 end if;
             end loop;
             Paren := 0;            
@@ -35,7 +38,7 @@ package body Tree_Expression is
                     Paren := Paren + 1;
                 elsif Expression_String (I) = ')' then
                     Paren := Paren - 1;
-                elsif Paren = 1 and (Expression_String (I) in Number_Type) then
+                elsif Paren = 1 and pe) then
                     -- if it is a number then collect all the digits
                     declare
                         --create a local variable to loop with
@@ -45,7 +48,7 @@ package body Tree_Expression is
                             exit when Expression_String (J) not in Number_Type;
                             J := J + 1;
                         end loop;
-                        return Gen_Tree.Create_Node ( Expression_String((I+1) .. J), null, null);
+                        return GT.Create_Node ( Expression_String((I+1) .. J), null, null);
                     end;
                 else 
                     raise Expression_Error;

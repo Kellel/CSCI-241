@@ -11,6 +11,7 @@ PACKAGE Tree_Expression IS
    String_Size : Natural := 20;
    subtype Tree_String is String (1 .. String_Size);
    package Binary_Expression_Tree is new Gen_Tree(Tree_String);
+   package GT renames Binary_Expression_Tree;
    package Float_Functions is new Ada.Numerics.Generic_Elementary_Functions
      (Float_Type => Float);
 

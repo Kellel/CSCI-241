@@ -1,27 +1,22 @@
 V "GNAT Lib v4.6"
 M P W=b
-A -gnato
 P SS ZX
-R nnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+R nnnnnnnnnnnnnnnnnnnnnnnnnvnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
-U tree_expression_test%b  tree_expression_test.adb  bc08a0e2 NE OO SU
+U test_stuff%b		test_stuff.adb		910b116b NE OO SU IL KM
 W ada%s			ada.ads			ada.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
-W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
-W tree_expression%s	tree_expression.adb	tree_expression.ali
 
 D ada.ads		20110715060658 3ffc8e18
 D a-except.ads		20110715060658 0c711ac9
 D a-finali.ads		20110715060658 e5e85fa4
 D a-filico.ads		20110715060658 872dc219
 D a-ioexce.ads		20110715060658 8b9de6cd
-D a-numeri.ads		20110715060658 bb51c45a
-D a-ngelfu.ads		20110715060658 47731de9
 D a-stream.ads		20110715060658 2ca4ee37
 D a-tags.ads		20110715060658 c7695348
 D a-textio.ads		20110715060658 386df5d4
 D a-unccon.ads		20110715060658 f9eb8f06
-D gen_tree.ads		20121011130628 867a0a45
 D interfac.ads		20110715060702 f77d8799
 D i-cstrea.ads		20110715060702 1bd72c32
 D system.ads		20110715060713 981f3aca
@@ -41,22 +36,14 @@ D s-stratt.ads		20110715060705 aedef97e
 D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
-D tree_expression.ads	20121011144112 956acf3b
-D tree_expression_test.adb  20121011140621 110f9a0d
+D test_stuff.adb	20121011141402 a966e4bf
 X 1 ada.ads
-16K9*Ada 19e8 33|2r6 2r23
-X 10 a-textio.ads
-49K13*Text_IO 472e16 33|2w10 2r27
-243U14*Put 33|8s5
-X 12 gen_tree.ads
-11R9*Node_Type
-12P9*Node_Ptr(11R9[32|15])
-X 32 tree_expression.ads
-11K9*Tree_Expression 32e20 33|1w6 1r27
-20P12*Expression_Node_Ptr{12|12P9[15]} 33|5r12
-22V13*Construct{20P12} 33|7s13
-28V13*Postfix_Notation{string} 33|8s11
-X 33 tree_expression_test.adb
-4U11*Tree_Expression_Test 4b11 9l5 9t25
-5p5 Tree{32|20P12} 7m5
+16K9*Ada 19e8 29|1r6 1r23
+X 8 a-textio.ads
+49K13*Text_IO 472e16 29|1w10 1r27
+243U14*Put 29|8s9 10s9
+X 29 test_stuff.adb
+3U11*test_stuff 3b11 12l5 12t15
+4A10 Test_Set(boolean)<character> 5r21
+5a5 Test{4A10} 7r8
 

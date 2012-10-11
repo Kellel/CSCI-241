@@ -4,6 +4,8 @@
 --
 -- Spec file for building and processing expression trees
 --------------------------------------------------------------------------------
+
+with Ada.Text_IO;--For testing... disable for production
 with Gen_Tree;
 with Ada.Numerics.Generic_Elementary_Functions;
 PACKAGE Tree_Expression IS

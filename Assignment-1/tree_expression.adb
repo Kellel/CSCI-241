@@ -8,10 +8,11 @@ package body Tree_Expression is
     end To_String;
 
     function Construct ( Expression_String : String ) return Expression_Node_Ptr is
-        type Number_Set
-    	type Number_Type is ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
+        type Number_Set is array (Character) of Boolean;
+        Numbers : constant Number_Set := ( '0' => True, '1'=>True, '2'=>True, '3'=>True, '4'=> True, '5'=>True, '6'=>True, '7'=>True, '8'=>True, '9'=>True, others => False);
+    	-- type Number_Type is ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
         type Operator_Set is array (Character) of Boolean;
-	Operators : constant Operator_Set := ( '+' => True, '-' => True, '*' => True, '/' => True, others => False);
+	    Operators : constant Operator_Set := ( '+' => True, '-' => True, '*' => True, '/' => True, others => False);
         -- subtype Expression_Type is Character ( '+', '-', '*', '/' );
         -- Recursive function to parse an Expression_String
         -- based on the assumption that you can use a range as an index
@@ -19,10 +20,11 @@ package body Tree_Expression is
         function construct ( Expression_String : String ) return Expression_Node_Ptr is
             Number_Length : Natural := 1;
             Last : Natural := Expression_String'Length;
-            First : Natural := 0;
+            First : Natural := 1;
             Paren : Natural := 0;
         begin
             -- Look for Operator first 
+            Ada.Text_IO.put("Testing");
             for I in Expression_String'Range loop
                 if Expression_String (I) = '(' then
                     Paren := Paren + 1;
@@ -33,27 +35,64 @@ package body Tree_Expression is
                 end if;
             end loop;
             Paren := 0;            
-            for I in Expression_String'Range loop
-                if Expression_String (I) = '(' then
-                    Paren := Paren + 1;
-                elsif Expression_String (I) = ')' then
-                    Paren := Paren - 1;
-                elsif Paren = 1 and pe) then
-                    -- if it is a number then collect all the digits
-                    declare
-                        --create a local variable to loop with
-                        J : Natural := 0;
-                    begin
-                        loop
-                            exit when Expression_String (J) not in Number_Type;
-                            J := J + 1;
-                        end loop;
-                        return GT.Create_Node ( Expression_String((I+1) .. J), null, null);
-                    end;
-                else 
-                    raise Expression_Error;
+            Ada.Text_IO.put("number");
+            -- There are no operators left so get the number
+            declare
+                First_Number : Natural := 1;
+                Current_Number : Natural := 1;
+                Last_Number  : Natural;
+            begin
+                loop
+                    if Numbers(Expression_String(Current_Number)) then
+                        First_Number := Current_Number;
+                        exit;
+                    else
+                        Current_Number := Current_Number + 1;
+                    end if;
+                    if Current_Number = Last then
+                        exit;
+                    end if;
+                end loop;
+                -- Find the last digit
+                Current_Number := First_Number;
+                loop
+                    if Numbers(Expression_String(Current_Number)) then
+                        Current_Number := Current_Number + 1;
+                    elsif Current_Number = Last then
+                        exit;
+                    else
+                        exit;
+                    end if;
+                end loop;
+                Last_Number := Current_Number;
+                if First_Number = Last_Number then
+                    return GT.Create_Node(To_String(Expression_String(First_Number)), null, null);
+                else
+                    return GT.Create_Node(Expression_String(First_Number .. Last_Number), null, null);
                 end if;
-            end loop;    
+            end;
+
+                    
+
+            --for I in Expression_String'Range loop
+            --    if Numbers(Expression_String(I)) then
+            --        -- if it is a number then collect all the digits
+            --        declare
+            --            --create a local variable to loop with
+            --            J : Natural := 0;
+            --        begin
+            --            loop
+            --                exit when (not Numbers(Expression_String(I + J))) or (I+J) = Last;
+            --                J := J + 1;
+            --            end loop;
+            --            if J = 0 then
+            --                return GT.Create_Node ( To_String(Expression_String(I)), null, null);
+            --            else
+            --                return GT.Create_Node (Expression_String(I .. (I+J)), null, null);
+            --            end if;
+            --        end;
+            --    end if;
+            --end loop;    
         end construct;
     begin
         return construct ( Expression_String );

@@ -6,6 +6,7 @@
 --------------------------------------------------------------------------------
 
 with Ada.Text_IO;--For testing... disable for production
+with Ada.Integer_Text_IO;
 with Gen_Tree;
 with Ada.Numerics.Generic_Elementary_Functions;
 PACKAGE Tree_Expression IS

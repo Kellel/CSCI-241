@@ -4,7 +4,7 @@ A -gnato
 P SS ZX
 R nnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
 
-U tree_expression_test%b  tree_expression_test.adb  bc08a0e2 NE OO SU
+U tree_expression_test%b  tree_expression_test.adb  41cf40bb NE OO SU
 W ada%s			ada.ads			ada.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
@@ -14,12 +14,14 @@ D ada.ads		20110715060658 3ffc8e18
 D a-except.ads		20110715060658 0c711ac9
 D a-finali.ads		20110715060658 e5e85fa4
 D a-filico.ads		20110715060658 872dc219
+D a-inteio.ads		20110715060658 f64b89a4
 D a-ioexce.ads		20110715060658 8b9de6cd
 D a-numeri.ads		20110715060658 bb51c45a
 D a-ngelfu.ads		20110715060658 47731de9
 D a-stream.ads		20110715060658 2ca4ee37
 D a-tags.ads		20110715060658 c7695348
 D a-textio.ads		20110715060658 386df5d4
+D a-tiinio.ads		20110715060658 aa04e5d6
 D a-unccon.ads		20110715060658 f9eb8f06
 D gen_tree.ads		20121011130628 867a0a45
 D interfac.ads		20110715060702 f77d8799
@@ -41,22 +43,22 @@ D s-stratt.ads		20110715060705 aedef97e
 D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
-D tree_expression.ads	20121011144112 956acf3b
-D tree_expression_test.adb  20121011140621 110f9a0d
+D tree_expression.ads	20121011182120 621583f1
+D tree_expression_test.adb  20121011195510 1bb7369e
 X 1 ada.ads
-16K9*Ada 19e8 33|2r6 2r23
-X 10 a-textio.ads
-49K13*Text_IO 472e16 33|2w10 2r27
-243U14*Put 33|8s5
-X 12 gen_tree.ads
+16K9*Ada 19e8 35|2r6 2r23
+X 11 a-textio.ads
+49K13*Text_IO 472e16 35|2w10 2r27
+243U14*Put 35|8s5
+X 14 gen_tree.ads
 11R9*Node_Type
-12P9*Node_Ptr(11R9[32|15])
-X 32 tree_expression.ads
-11K9*Tree_Expression 32e20 33|1w6 1r27
-20P12*Expression_Node_Ptr{12|12P9[15]} 33|5r12
-22V13*Construct{20P12} 33|7s13
-28V13*Postfix_Notation{string} 33|8s11
-X 33 tree_expression_test.adb
+12P9*Node_Ptr(11R9[34|16])
+X 34 tree_expression.ads
+12K9*Tree_Expression 33e20 35|1w6 1r27
+21P12*Expression_Node_Ptr{14|12P9[16]} 35|5r12
+23V13*Construct{21P12} 35|7s13
+29V13*Postfix_Notation{string} 35|8s11
+X 35 tree_expression_test.adb
 4U11*Tree_Expression_Test 4b11 9l5 9t25
-5p5 Tree{32|20P12} 7m5
+5p5 Tree{34|21P12} 7m5
 

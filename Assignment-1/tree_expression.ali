@@ -3,13 +3,14 @@ A -gnato
 P SS ZX
 R nnnnnnnnnnvnnnnnnnnnnnnnvvnnnvnnnnnnnvnnnvnnvnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
 
-U tree_expression%b	tree_expression.adb	7f47b851 NE OO PK
+U tree_expression%b	tree_expression.adb	8b309a61 NE OO PK
 W ada.tags%s		a-tags.adb		a-tags.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
-U tree_expression%s	tree_expression.ads	6c0e2d43 EE OO PK KU
+U tree_expression%s	tree_expression.ads	6d3ae82d EE OO PK KU
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.numerics.aux%s	a-numaux.adb		a-numaux.ali
 W ada.numerics.generic_elementary_functions%s
@@ -28,6 +29,7 @@ D ada.ads		20110715060658 3ffc8e18
 D a-except.ads		20110715060658 0c711ac9
 D a-finali.ads		20110715060658 e5e85fa4
 D a-filico.ads		20110715060658 872dc219
+D a-inteio.ads		20110715060658 f64b89a4
 D a-ioexce.ads		20110715060658 8b9de6cd
 D a-numeri.ads		20110715060658 bb51c45a
 D a-numaux.ads		20110715060658 243fe0b7
@@ -36,6 +38,7 @@ D a-ngelfu.adb		20110715060658 d18bc0c2
 D a-stream.ads		20110715060658 2ca4ee37
 D a-tags.ads		20110715060658 c7695348
 D a-textio.ads		20110715060658 386df5d4
+D a-tiinio.ads		20110715060658 aa04e5d6
 D a-unccon.ads		20110715060658 f9eb8f06
 D gen_tree.ads		20121011130628 867a0a45
 D gen_tree.adb		20121010154316 85434ae6
@@ -61,61 +64,68 @@ D s-stratt.ads		20110715060705 aedef97e
 D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
-D tree_expression.ads	20121011144112 956acf3b
-D tree_expression.adb	20121011150832 ea2d776a
+D tree_expression.ads	20121011182120 621583f1
+D tree_expression.adb	20121011195230 e9251990
 X 1 ada.ads
-16K9*Ada 19e8 38|8r6 10r6 17r35 39|27r13 38r13
-X 6 a-numeri.ads
-16K13*Numerics 32e17 38|10r10 17r39
-X 8 a-ngelfu.ads
-17F9 Float_Type 38|18r7
-19k22*Generic_Elementary_Functions 73e46 38|10w19 17r48
-X 12 a-textio.ads
-49K13*Text_IO 472e16 38|8w10 39|27r17 38r17
-243U14*Put 39|27s25 38s25
-X 14 gen_tree.ads
-10k9*Gen_Tree 37e13 38|9w6 15r42
+16K9*Ada 19e8 40|8r6 9r6 11r6 18r35 41|27r13 28r13 40r13 57r21 64r17 67r21
+. 72r17
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[14|45] 40|9w10 41|57r25 67r25
+X 7 a-numeri.ads
+16K13*Numerics 32e17 40|11r10 18r39
+X 9 a-ngelfu.ads
+17F9 Float_Type 40|19r7
+19k22*Generic_Elementary_Functions 73e46 40|11w19 18r48
+X 13 a-textio.ads
+49K13*Text_IO 472e16 40|8w10 41|27r17 28r17 40r17 64r21 72r21
+243U14*Put 41|27s25 40s25
+264U14*Put_Line 41|28s25 64s29 72s29
+X 14 a-tiinio.ads
+65U14*Put 41|57s41[5|18] 67s41[5|18]
+X 16 gen_tree.ads
+10k9*Gen_Tree 37e13 40|10w6 16r42
 11R9*Node_Type
-12P9*Node_Ptr(11R9[38|15]) 38|20r58[15]
-14V13*Create_Node{12P9[38|15]} 39|34s31[38|15] 69s31[38|15] 71s31[38|15]
-X 38 tree_expression.ads
-11K9*Tree_Expression 32l5 32e20 39|1b14 121l5 121t20
-13i4*String_Size{natural} 14r40
-14A12*Tree_String{string}<integer> 15r51 39|4r18
-15K12*Binary_Expression_Tree[14|10] 16r23 20r35
-16K12*GT=16:23 39|34r28 69r28 71r28
-17K12*Float_Functions[8|19]
-20P12*Expression_Node_Ptr{14|12P9[15]} 22r59 24r30 26r36 27r37 28r38 39|10r62
-. 20r66 101r32 106r38 111r39 116r40
-22V13*Construct{20P12} 22>24 39|10b14 99l9 99t18
-22s24 Expression_String{string} 39|10b26 98r28
-24V13*Evaluate{float} 24>23 39|101b14 104l9 104t17
-24p23 Node{20P12} 39|101b25
-26V13*Infix_Notation{string} 26>29 39|106b14 109l9 109t23
-26p29 Node{20P12} 39|106b31
-27V13*Prefix_Notation{string} 27>30 39|111b14 114l9 114t24
-27p30 Node{20P12} 39|111b32
-28V13*Postfix_Notation{string} 28>31 39|116b14 119l9 119t25
-28p31 Node{20P12} 39|116b33
-30X4*Expression_Error
-X 39 tree_expression.adb
-3V14 To_String{string} 3b14 3>26 8l9 8t18 34s44 69s43
+12P9*Node_Ptr(11R9[40|16]) 40|21r58[16]
+14V13*Create_Node{12P9[40|16]} 41|36s31[40|16] 80s31[40|16] 82s31[40|16]
+X 40 tree_expression.ads
+12K9*Tree_Expression 33l5 33e20 41|1b14 132l5 132t20
+14i4*String_Size{natural} 15r40
+15A12*Tree_String{string}<integer> 16r51 41|4r18
+16K12*Binary_Expression_Tree[16|10] 17r23 21r35
+17K12*GT=17:23 41|36r28 80r28 82r28
+18K12*Float_Functions[9|19]
+21P12*Expression_Node_Ptr{16|12P9[16]} 23r59 25r30 27r36 28r37 29r38 41|10r62
+. 20r59 112r32 117r38 122r39 127r40
+23V13*Construct{21P12} 23>24 41|10b14 110l9 110t18
+23s24 Expression_String{string} 41|10b26 109r28
+25V13*Evaluate{float} 25>23 41|112b14 115l9 115t17
+25p23 Node{21P12} 41|112b25
+27V13*Infix_Notation{string} 27>29 41|117b14 120l9 120t23
+27p29 Node{21P12} 41|117b31
+28V13*Prefix_Notation{string} 28>30 41|122b14 125l9 125t24
+28p30 Node{21P12} 41|122b32
+29V13*Postfix_Notation{string} 29>31 41|127b14 130l9 130t25
+29p31 Node{21P12} 41|127b33
+31X4*Expression_Error
+X 41 tree_expression.adb
+3V14 To_String{string} 3b14 3>26 8l9 8t18 36s44 80s43
 3e26 Input{character} 6r25
-4a9 output{38|14A12} 6m9 7r16
+4a9 output{40|15A12} 6m9 7r16
 11A14 Number_Set(boolean)<character> 12r28
-12a9 Numbers{11A14} 46r24 59r24
+12a9 Numbers{11A14} 58r24 68r24
 14A14 Operator_Set(boolean)<character> 15r34
-15a13 Operators{14A14} 33r37
-20V18 construct{38|20P12} 20b18 20>30 34s77 34s123 96l13 96t22 98s16
-20s30 Expression_String{string} 22r31 28r22 29r20 31r23 33r47 34r54 34r87
-. 34r133 46r32 59r32 69r53 71r43
+15a13 Operators{14A14} 35r37
+20V18 construct{40|21P12} 20b18 20>30 36s70 36s115 107l13 107t22 109s16
+20s30 Expression{string} 22r31 28r34 29r22 31r20 33r23 35r47 36r54 36r80
+. 36r125 54r43 56r26 58r32 66r26 68r32 80r53 82r43
 21i13 Number_Length{natural}
-22i13 Last{natural} 34r162 52r41 61r44
-23i13 First{natural} 34r105
-24i13 Paren{natural} 30m21 30r30 32m21 32r30 33r23 37m13
-28i17 I{integer} 29r39 31r42 33r65 34r72 34r115 34r152
-41i17 First_Number{natural} 47m25 57r35 68r20 69r71 71r61
-42i17 Current_Number{natural} 46r50 47r41 50m25 50r43 52r24 57m17 59r50 60m25
-. 60r43 61r27 67r32
-43i17 Last_Number{natural} 67m17 68r35 71r77
+22i13 Last{natural} 36r147
+23i13 First{natural} 36r92
+24i13 Paren{integer} 32m21 32r30 34m21 34r30 35r23 39m13
+29i17 I{integer} 31r32 33r35 35r58 36r65 36r107 36r137
+52i17 First_Number{natural} 59m25 79r20 80r64 82r55
+53i17 Current{natural}
+54i17 Last_Number{natural} 69m25 69r40 79r35 82r73
+56i21 J{integer} 57r45 58r43 59r41
+66i21 I{integer} 67r45 68r43
 

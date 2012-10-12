@@ -3,7 +3,12 @@ package body Tree_Expression is
     function To_String ( Input : Character ) return String is
         output : Tree_String;
     begin
-        output ( 1 ) := Input;
+        output ( output'First ) := Input;
+        for I in output'Range loop
+            if I > output'First then
+                output(I) := ' ';
+            end if;
+        end loop;
         return output;
     end To_String;
 
@@ -19,13 +24,13 @@ package body Tree_Expression is
         -- if ( ) remove the parens and send the inside stuff back into recursion
         function construct ( Expression : String ) return Expression_Node_Ptr is
             Number_Length : Natural := 1;
-            Last : Natural := Expression'Length;
-            First : Natural := 1;
+            Last : Natural := Expression'Last;
+            First : Natural := Expression'First;
             Paren : Integer := 0;
         begin
             -- Look for Operator first 
             Ada.Text_IO.put("Testing");
-            Ada.Text_IO.put_line(Expression);
+            --Ada.Text_IO.put_line(Expression);
             for I in Expression'Range loop
 
                 if Expression (I) = '(' then
@@ -40,6 +45,10 @@ package body Tree_Expression is
                     elsif (I + 1) = Last then
                         return GT.Create_Node(To_String(Expression(I)), construct(Expression((First + 1) .. (I - 1))), construct(To_String(Expression(I + 1))));
                     else
+                        --Ada.Integer_Text_IO.put(First+1);
+                        --Ada.Text_IO.put("-");
+                        --Ada.Integer_Text_IO.put(I-1);
+                        --Ada.Text_IO.Put_Line(Expression((First + 1).. (I - 1)));
                         return GT.Create_Node(To_String(Expression(I)), construct(Expression((First + 1) .. (I - 1))), construct(Expression((I + 1) .. Last)));
                     end if;
                 end if;
@@ -65,26 +74,33 @@ package body Tree_Expression is
             --       **** End Rant ****
             --
             declare
-                First_Number : Natural;
-                Current : Natural := 0;
-                Last_Number  : Natural := Expression'First - 1;
+                First_Number : Natural := Expression'First;
+                Last_Number  : Natural;
             begin
                 for J in Expression'Range loop
-                    Ada.Integer_Text_IO.put(J);
-                    if Numbers(Expression(J)) then
-                        First_Number := J;
+             --       Ada.Integer_Text_IO.put(J);
+                    if not Numbers(Expression(J)) then
+                        First_Number := First_Number + 1;
                         exit;
                     end if;
                 end loop;
+                Last_Number := First_Number;
                 for I in Expression'Range loop
-                    Ada.Integer_Text_IO.put(I);
-                    if Numbers(Expression(I)) then
+             --       Ada.Integer_Text_IO.put(I);
+                    if Numbers(Expression(I)) and I > First_Number then
                         Last_Number := Last_Number + 1;
                     end if;
                 end loop;
                 if First_Number = Last_Number then
                     return GT.Create_Node(To_String(Expression(First_Number)), null, null);
                 else
+                    Ada.Text_IO.Put_Line(Expression);
+                    Ada.Integer_Text_IO.put(First_Number);
+                    Ada.Integer_Text_IO.put(Expression'First);
+                    Ada.Integer_Text_IO.put(Last_Number);
+                    Ada.Integer_Text_IO.put(Expression'Last);
+                    Ada.Integer_Text_IO.put(Expression'Length);
+                    Ada.Text_IO.new_line;
                     return GT.Create_Node(Expression((First_Number) .. (Last_Number)), null, null);
                 end if;
             end;

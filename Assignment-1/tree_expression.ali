@@ -2,7 +2,7 @@ V "GNAT Lib v4.6"
 P SS ZX
 R nnnnnnnnnnvnnnnnnnnnnnnnvvnnnvnnnnnnnvnnnvnnvnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
 
-U tree_expression%b	tree_expression.adb	273181cf NE OO PK
+U tree_expression%b	tree_expression.adb	7e74082f NE OO PK
 W ada.tags%s		a-tags.adb		a-tags.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
@@ -64,71 +64,73 @@ D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
 D tree_expression.ads	20121011182120 621583f1
-D tree_expression.adb	20121012085651 4524023e
+D tree_expression.adb	20121012121440 1c618bde
 X 1 ada.ads
-16K9*Ada 19e8 40|8r6 9r6 11r6 18r35 41|27r13 28r13 73r21 80r21
+16K9*Ada 19e8 40|8r6 9r6 11r6 18r35 41|32r13 97r21 98r21 99r21 100r21 101r21
+. 102r21 103r21
 X 5 a-inteio.ads
-18K13*Integer_Text_IO[14|45] 40|9w10 41|73r25 80r25
+18K13*Integer_Text_IO[14|45] 40|9w10 41|98r25 99r25 100r25 101r25 102r25
 X 7 a-numeri.ads
 16K13*Numerics 32e17 40|11r10 18r39
 X 9 a-ngelfu.ads
 17F9 Float_Type 40|19r7
 19k22*Generic_Elementary_Functions 73e46 40|11w19 18r48
 X 13 a-textio.ads
-49K13*Text_IO 472e16 40|8w10 41|27r17 28r17
-243U14*Put 41|27s25
-264U14*Put_Line 41|28s25
+49K13*Text_IO 472e16 40|8w10 41|32r17 97r25 103r25
+167U14*New_Line 41|103s33
+243U14*Put 41|32s25
+264U14*Put_Line 41|97s33
 X 14 a-tiinio.ads
-65U14*Put 41|73s41[5|18] 80s41[5|18]
+65U14*Put 41|98s41[5|18] 99s41[5|18] 100s41[5|18] 101s41[5|18] 102s41[5|18]
 X 16 gen_tree.ads
 10k9*Gen_Tree 37e13 40|10w6 16r42
 11R9*Node_Type
 12P9*Node_Ptr(11R9[40|16]) 40|21r58[16]
-14V13*Create_Node{12P9[40|16]} 41|37s35[40|16] 39s35[40|16] 41s35[40|16]
-. 43s35[40|16] 86s31[40|16] 88s31[40|16]
+14V13*Create_Node{12P9[40|16]} 41|42s35[40|16] 44s35[40|16] 46s35[40|16]
+. 52s35[40|16] 95s31[40|16] 104s31[40|16]
 X 40 tree_expression.ads
-12K9*Tree_Expression 33l5 33e20 41|1b14 138l5 138t20
+12K9*Tree_Expression 33l5 33e20 41|1b14 132l5 132t20
 14i4*String_Size{natural} 15r40
 15A12*Tree_String{string}<integer> 16r51 41|4r18
 16K12*Binary_Expression_Tree[16|10] 17r23 21r35
-17K12*GT=17:23 41|37r32 39r32 41r32 43r32 86r28 88r28
+17K12*GT=17:23 41|42r32 44r32 46r32 52r32 95r28 104r28
 18K12*Float_Functions[9|19]
-21P12*Expression_Node_Ptr{16|12P9[16]} 23r59 25r30 27r36 28r37 29r38 41|10r62
-. 20r59 118r32 123r38 128r39 133r40
-23V13*Construct{21P12} 23>24 41|10b14 116l9 116t18
-23s24 Expression_String{string} 41|10b26 115r28
-25V13*Evaluate{float} 25>23 41|118b14 121l9 121t17
-25p23 Node{21P12} 41|118b25
-27V13*Infix_Notation{string} 27>29 41|123b14 126l9 126t23
-27p29 Node{21P12} 41|123b31
-28V13*Prefix_Notation{string} 28>30 41|128b14 131l9 131t24
-28p30 Node{21P12} 41|128b32
-29V13*Postfix_Notation{string} 29>31 41|133b14 136l9 136t25
-29p31 Node{21P12} 41|133b33
+21P12*Expression_Node_Ptr{16|12P9[16]} 23r59 25r30 27r36 28r37 29r38 41|15r62
+. 25r59 112r32 117r38 122r39 127r40
+23V13*Construct{21P12} 23>24 41|15b14 110l9 110t18
+23s24 Expression_String{string} 41|15b26 109r28
+25V13*Evaluate{float} 25>23 41|112b14 115l9 115t17
+25p23 Node{21P12} 41|112b25
+27V13*Infix_Notation{string} 27>29 41|117b14 120l9 120t23
+27p29 Node{21P12} 41|117b31
+28V13*Prefix_Notation{string} 28>30 41|122b14 125l9 125t24
+28p30 Node{21P12} 41|122b32
+29V13*Postfix_Notation{string} 29>31 41|127b14 130l9 130t25
+29p31 Node{21P12} 41|127b33
 31X4*Expression_Error
 X 41 tree_expression.adb
-3V14 To_String{string} 3b14 3>26 8l9 8t18 37s48 37s84 37s129 39s47 39s83
-. 41s47 41s130 43s47 86s43
-3e26 Input{character} 6r25
-4a9 output{40|15A12} 6m9 7r16
-11A14 Number_Set(boolean)<character> 12r28
-12a9 Numbers{11A14} 74r24 81r24
-14A14 Operator_Set(boolean)<character> 15r34
-15a13 Operators{14A14} 35r37
-20V18 construct{40|21P12} 20b18 20>30 37s74 37s119 39s73 39s117 41s73 41s120
-. 43s73 43s120 113l13 113t22 115s16
-20s30 Expression{string} 22r31 28r34 29r22 31r20 33r23 35r47 37r58 37r94
-. 37r139 39r57 39r93 39r127 41r57 41r83 41r140 43r57 43r83 43r130 70r43 72r26
-. 74r32 79r26 81r32 86r53 88r43
-21i13 Number_Length{natural}
-22i13 Last{natural} 36r60 39r149 40r37 43r152
-23i13 First{natural} 36r25 37r105 38r28 39r104 41r95 43r95
-24i13 Paren{integer} 32m21 32r30 34m21 34r30 35r23
-29i17 I{integer} 31r32 33r35 35r58 36r39 36r51 37r69 37r150 38r42 39r68 39r139
-. 40r28 41r68 41r110 41r151 43r68 43r110 43r142
-68i17 First_Number{natural} 75m25 85r20 86r64 88r55
-69i17 Current{natural}
-70i17 Last_Number{natural} 82m25 82r40 85r35 88r73
-72i21 J{integer} 73r45 74r43 75r41
-79i21 I{integer} 80r45 81r43
+3V14 To_String{string} 3b14 3>26 13l9 13t18 42s48 42s84 42s129 44s47 44s83
+. 46s47 46s130 52s47 95s43
+3e26 Input{character} 6r36
+4a9 output{40|15A12} 6m9 6r18 7r18 8r20 9m17 12r16
+7i13 I{integer} 8r16 9r24
+16A14 Number_Set(boolean)<character> 17r28
+17a9 Numbers{16A14} 82r28 90r24
+19A14 Operator_Set(boolean)<character> 20r34
+20a13 Operators{19A14} 40r37
+25V18 construct{40|21P12} 25b18 25>30 42s74 42s119 44s73 44s117 46s73 46s120
+. 52s73 52s120 107l13 107t22 109s16
+25s30 Expression{string} 27r31 28r32 34r22 36r20 38r23 40r47 42r58 42r94
+. 42r139 44r57 44r93 44r127 46r57 46r83 46r140 52r57 52r83 52r130 77r43 80r26
+. 82r36 88r26 90r32 95r53 97r42 99r45 101r45 102r45 104r43
+26i13 Number_Length{natural}
+27i13 Last{natural} 41r60 44r149 45r37 52r152
+28i13 First{natural} 41r25 42r105 43r28 44r104 46r95 52r95
+29i13 Paren{integer} 37m21 37r30 39m21 39r30 40r23
+34i17 I{integer} 36r32 38r35 40r58 41r39 41r51 42r69 42r150 43r42 44r68 44r139
+. 45r28 46r68 46r110 46r151 52r68 52r110 52r142
+77i17 First_Number{natural} 83m25 83r41 87r32 90r55 94r20 95r64 98r45 104r55
+78i17 Last_Number{natural} 87m17 91m25 91r40 94r35 100r45 104r73
+80i21 J{integer} 82r47
+88i21 I{integer} 90r43 90r51
 

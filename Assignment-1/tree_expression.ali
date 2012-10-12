@@ -1,9 +1,8 @@
 V "GNAT Lib v4.6"
-A -gnato
 P SS ZX
 R nnnnnnnnnnvnnnnnnnnnnnnnvvnnnvnnnnnnnvnnnvnnvnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
 
-U tree_expression%b	tree_expression.adb	8b309a61 NE OO PK
+U tree_expression%b	tree_expression.adb	273181cf NE OO PK
 W ada.tags%s		a-tags.adb		a-tags.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 
@@ -65,67 +64,71 @@ D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
 D tree_expression.ads	20121011182120 621583f1
-D tree_expression.adb	20121011195230 e9251990
+D tree_expression.adb	20121012085651 4524023e
 X 1 ada.ads
-16K9*Ada 19e8 40|8r6 9r6 11r6 18r35 41|27r13 28r13 40r13 57r21 64r17 67r21
-. 72r17
+16K9*Ada 19e8 40|8r6 9r6 11r6 18r35 41|27r13 28r13 73r21 80r21
 X 5 a-inteio.ads
-18K13*Integer_Text_IO[14|45] 40|9w10 41|57r25 67r25
+18K13*Integer_Text_IO[14|45] 40|9w10 41|73r25 80r25
 X 7 a-numeri.ads
 16K13*Numerics 32e17 40|11r10 18r39
 X 9 a-ngelfu.ads
 17F9 Float_Type 40|19r7
 19k22*Generic_Elementary_Functions 73e46 40|11w19 18r48
 X 13 a-textio.ads
-49K13*Text_IO 472e16 40|8w10 41|27r17 28r17 40r17 64r21 72r21
-243U14*Put 41|27s25 40s25
-264U14*Put_Line 41|28s25 64s29 72s29
+49K13*Text_IO 472e16 40|8w10 41|27r17 28r17
+243U14*Put 41|27s25
+264U14*Put_Line 41|28s25
 X 14 a-tiinio.ads
-65U14*Put 41|57s41[5|18] 67s41[5|18]
+65U14*Put 41|73s41[5|18] 80s41[5|18]
 X 16 gen_tree.ads
 10k9*Gen_Tree 37e13 40|10w6 16r42
 11R9*Node_Type
 12P9*Node_Ptr(11R9[40|16]) 40|21r58[16]
-14V13*Create_Node{12P9[40|16]} 41|36s31[40|16] 80s31[40|16] 82s31[40|16]
+14V13*Create_Node{12P9[40|16]} 41|37s35[40|16] 39s35[40|16] 41s35[40|16]
+. 43s35[40|16] 86s31[40|16] 88s31[40|16]
 X 40 tree_expression.ads
-12K9*Tree_Expression 33l5 33e20 41|1b14 132l5 132t20
+12K9*Tree_Expression 33l5 33e20 41|1b14 138l5 138t20
 14i4*String_Size{natural} 15r40
 15A12*Tree_String{string}<integer> 16r51 41|4r18
 16K12*Binary_Expression_Tree[16|10] 17r23 21r35
-17K12*GT=17:23 41|36r28 80r28 82r28
+17K12*GT=17:23 41|37r32 39r32 41r32 43r32 86r28 88r28
 18K12*Float_Functions[9|19]
 21P12*Expression_Node_Ptr{16|12P9[16]} 23r59 25r30 27r36 28r37 29r38 41|10r62
-. 20r59 112r32 117r38 122r39 127r40
-23V13*Construct{21P12} 23>24 41|10b14 110l9 110t18
-23s24 Expression_String{string} 41|10b26 109r28
-25V13*Evaluate{float} 25>23 41|112b14 115l9 115t17
-25p23 Node{21P12} 41|112b25
-27V13*Infix_Notation{string} 27>29 41|117b14 120l9 120t23
-27p29 Node{21P12} 41|117b31
-28V13*Prefix_Notation{string} 28>30 41|122b14 125l9 125t24
-28p30 Node{21P12} 41|122b32
-29V13*Postfix_Notation{string} 29>31 41|127b14 130l9 130t25
-29p31 Node{21P12} 41|127b33
+. 20r59 118r32 123r38 128r39 133r40
+23V13*Construct{21P12} 23>24 41|10b14 116l9 116t18
+23s24 Expression_String{string} 41|10b26 115r28
+25V13*Evaluate{float} 25>23 41|118b14 121l9 121t17
+25p23 Node{21P12} 41|118b25
+27V13*Infix_Notation{string} 27>29 41|123b14 126l9 126t23
+27p29 Node{21P12} 41|123b31
+28V13*Prefix_Notation{string} 28>30 41|128b14 131l9 131t24
+28p30 Node{21P12} 41|128b32
+29V13*Postfix_Notation{string} 29>31 41|133b14 136l9 136t25
+29p31 Node{21P12} 41|133b33
 31X4*Expression_Error
 X 41 tree_expression.adb
-3V14 To_String{string} 3b14 3>26 8l9 8t18 36s44 80s43
+3V14 To_String{string} 3b14 3>26 8l9 8t18 37s48 37s84 37s129 39s47 39s83
+. 41s47 41s130 43s47 86s43
 3e26 Input{character} 6r25
 4a9 output{40|15A12} 6m9 7r16
 11A14 Number_Set(boolean)<character> 12r28
-12a9 Numbers{11A14} 58r24 68r24
+12a9 Numbers{11A14} 74r24 81r24
 14A14 Operator_Set(boolean)<character> 15r34
 15a13 Operators{14A14} 35r37
-20V18 construct{40|21P12} 20b18 20>30 36s70 36s115 107l13 107t22 109s16
-20s30 Expression{string} 22r31 28r34 29r22 31r20 33r23 35r47 36r54 36r80
-. 36r125 54r43 56r26 58r32 66r26 68r32 80r53 82r43
+20V18 construct{40|21P12} 20b18 20>30 37s74 37s119 39s73 39s117 41s73 41s120
+. 43s73 43s120 113l13 113t22 115s16
+20s30 Expression{string} 22r31 28r34 29r22 31r20 33r23 35r47 37r58 37r94
+. 37r139 39r57 39r93 39r127 41r57 41r83 41r140 43r57 43r83 43r130 70r43 72r26
+. 74r32 79r26 81r32 86r53 88r43
 21i13 Number_Length{natural}
-22i13 Last{natural} 36r147
-23i13 First{natural} 36r92
-24i13 Paren{integer} 32m21 32r30 34m21 34r30 35r23 39m13
-29i17 I{integer} 31r32 33r35 35r58 36r65 36r107 36r137
-52i17 First_Number{natural} 59m25 79r20 80r64 82r55
-53i17 Current{natural}
-54i17 Last_Number{natural} 69m25 69r40 79r35 82r73
-56i21 J{integer} 57r45 58r43 59r41
-66i21 I{integer} 67r45 68r43
+22i13 Last{natural} 36r60 39r149 40r37 43r152
+23i13 First{natural} 36r25 37r105 38r28 39r104 41r95 43r95
+24i13 Paren{integer} 32m21 32r30 34m21 34r30 35r23
+29i17 I{integer} 31r32 33r35 35r58 36r39 36r51 37r69 37r150 38r42 39r68 39r139
+. 40r28 41r68 41r110 41r151 43r68 43r110 43r142
+68i17 First_Number{natural} 75m25 85r20 86r64 88r55
+69i17 Current{natural}
+70i17 Last_Number{natural} 82m25 82r40 85r35 88r73
+72i21 J{integer} 73r45 74r43 75r41
+79i21 I{integer} 80r45 81r43
 

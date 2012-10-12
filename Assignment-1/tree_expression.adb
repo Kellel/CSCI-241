@@ -34,19 +34,16 @@ package body Tree_Expression is
                     Paren := Paren - 1;
                 elsif Paren = 1 and Operators(Expression(I)) then
                     if (First + 1) = (I - 1) and (I + 1) = Last then
-                        return GT.Create_Node (To_String(Expression(I)), construct(Expression(First + 1)), construct(Expression(I + 1)));
+                        return GT.Create_Node (To_String(Expression(I)), construct(To_String(Expression(First + 1))), construct(To_String(Expression(I + 1))));
                     elsif (First + 1) = (I - 1) then
-                        return GT.Create_Node(To_String(Expression(I)), construct(Expression(First +1)), construct(Expression(I + 1) .. Last)));
+                        return GT.Create_Node(To_String(Expression(I)), construct(To_String(Expression(First +1))), construct(Expression((I + 1) .. Last)));
                     elsif (I + 1) = Last then
-                        return GT.Create_Node(To_String(Expression(I)), construct(Expression((First + 1) .. (I - 1))), construct(Expression(I + 1)));
+                        return GT.Create_Node(To_String(Expression(I)), construct(Expression((First + 1) .. (I - 1))), construct(To_String(Expression(I + 1))));
                     else
-                        return GT.Create_Node(To_String(Expression(I)), construct(Expression((First + 1) .. (I - 1))), construct(Expression(I + 1) .. Last));
+                        return GT.Create_Node(To_String(Expression(I)), construct(Expression((First + 1) .. (I - 1))), construct(Expression((I + 1) .. Last)));
                     end if;
                 end if;
             end loop;
-            Paren := 0;            
-            --Ada.Text_IO.put("number");
---            Ada.Integer_Text_IO.put(Expression'First);
             -- 
             -- **** My embeded rant about ada ****
             --    ** Disclaimer **
@@ -79,50 +76,18 @@ package body Tree_Expression is
                         exit;
                     end if;
                 end loop;
---                Ada.Integer_Text_IO.put(First_Number);
-                Ada.Text_IO.put_line("win");
-                -- Find the last digit
                 for I in Expression'Range loop
                     Ada.Integer_Text_IO.put(I);
                     if Numbers(Expression(I)) then
                         Last_Number := Last_Number + 1;
                     end if;
                 end loop;
-                Ada.Text_IO.put_line("win");
---                Ada.Integer_Text_IO.put(First_Number);
---                Ada.Text_IO.new_line;
---                Ada.Integer_Text_IO.put(Last_Number);
---                Ada.Text_IO.new_line;
---                Ada.Integer_Text_IO.put(Expression'Length);
---               Ada.Text_IO.put_line(Expression);
                 if First_Number = Last_Number then
                     return GT.Create_Node(To_String(Expression(First_Number)), null, null);
                 else
                     return GT.Create_Node(Expression((First_Number) .. (Last_Number)), null, null);
                 end if;
             end;
-
-                    
-
-            --for I in Expression_String'Range loop
-            --    if Numbers(Expression_String(I)) then
-            --        -- if it is a number then collect all the digits
-            --        declare
-            --            --create a local variable to loop with
-            --            J : Natural := 0;
-            --        begin
-            --            loop
-            --                exit when (not Numbers(Expression_String(I + J))) or (I+J) = Last;
-            --                J := J + 1;
-            --            end loop;
-            --            if J = 0 then
-            --                return GT.Create_Node ( To_String(Expression_String(I)), null, null);
-            --            else
-            --                return GT.Create_Node (Expression_String(I .. (I+J)), null, null);
-            --            end if;
-            --        end;
-            --    end if;
-            --end loop;    
         end construct;
     begin
         return construct ( Expression_String );

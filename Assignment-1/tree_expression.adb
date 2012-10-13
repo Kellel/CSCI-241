@@ -13,11 +13,6 @@ package body Tree_Expression is
     end To_String;
 
     function Construct ( Expression_String : String ) return Expression_Node_Ptr is
-        type Number_Set is array (Character) of Boolean;
-        Numbers : constant Number_Set := ( '0' => True, '1'=>True, '2'=>True, '3'=>True, '4'=> True, '5'=>True, '6'=>True, '7'=>True, '8'=>True, '9'=>True, others => False);
-    	-- type Number_Type is ( '0', '1', '2', '3', '4', '5', '6', '7', '8', '9');
-        type Operator_Set is array (Character) of Boolean;
-	    Operators : constant Operator_Set := ( '+' => True, '-' => True, '*' => True, '/' => True, others => False);
         -- subtype Expression_Type is Character ( '+', '-', '*', '/' );
         -- Recursive function to parse an Expression_String
         -- based on the assumption that you can use a range as an index
@@ -29,7 +24,7 @@ package body Tree_Expression is
             Paren : Integer := 0;
         begin
             -- Look for Operator first 
-            Ada.Text_IO.put("Testing");
+            --Ada.Text_IO.put("Testing");
             --Ada.Text_IO.put_line(Expression);
             for I in Expression'Range loop
 
@@ -81,7 +76,6 @@ package body Tree_Expression is
              --       Ada.Integer_Text_IO.put(J);
                     if not Numbers(Expression(J)) then
                         First_Number := First_Number + 1;
-                        exit;
                     end if;
                 end loop;
                 Last_Number := First_Number;
@@ -93,6 +87,8 @@ package body Tree_Expression is
                 end loop;
                 if First_Number = Last_Number then
                     return GT.Create_Node(To_String(Expression(First_Number)), null, null);
+                elsif First_Number = Expression'First and Last_Number = Expression'Last then
+                    return GT.Create_Node(Expression, null, null);
                 else
                     Ada.Text_IO.Put_Line(Expression);
                     Ada.Integer_Text_IO.put(First_Number);
@@ -101,11 +97,18 @@ package body Tree_Expression is
                     Ada.Integer_Text_IO.put(Expression'Last);
                     Ada.Integer_Text_IO.put(Expression'Length);
                     Ada.Text_IO.new_line;
-                    return GT.Create_Node(Expression((First_Number) .. (Last_Number)), null, null);
+                    return GT.Create_Node(Expression(0 .. 1), null, null);
                 end if;
             end;
         end construct;
     begin
+        for I in Expression_Save'Range loop
+            if I in Expression_String'Range then
+                Expression_Save(I) := Expression_String(I);
+            else
+                Expression_Save(I) := ' ';
+            end if;
+        end loop;
         return construct ( Expression_String );
     end Construct;
 
@@ -116,7 +119,7 @@ package body Tree_Expression is
 
     function Infix_Notation ( Node : Expression_Node_Ptr ) return String is 
     begin
-        return "Test";
+        return Expression_Save;
     end Infix_Notation;
 
     function Prefix_Notation ( Node : Expression_Node_Ptr ) return String is

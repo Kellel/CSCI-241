@@ -1,18 +1,25 @@
 V "GNAT Lib v4.6"
 M P W=b
 P SS ZX
-R nnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+R nnnnnnnnnnnnnnnnnnvnnvnnvvnnnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
 
-U tree_expression_test%b  tree_expression_test.adb  ee70e1a9 NE OO SU
+U main%b		main.adb		20a0d1ec NE OO SU IL
 W ada%s			ada.ads			ada.ali
+W ada.command_line%s	a-comlin.adb		a-comlin.ali
+W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
 W tree_expression%s	tree_expression.adb	tree_expression.ali
 
 D ada.ads		20110715060658 3ffc8e18
+D a-comlin.ads		20110715060658 e0accaa5
 D a-except.ads		20110715060658 0c711ac9
 D a-finali.ads		20110715060658 e5e85fa4
 D a-filico.ads		20110715060658 872dc219
+D a-flteio.ads		20110715060658 e18a47a0
 D a-inteio.ads		20110715060658 f64b89a4
 D a-ioexce.ads		20110715060658 8b9de6cd
 D a-numeri.ads		20110715060658 bb51c45a
@@ -20,12 +27,15 @@ D a-ngelfu.ads		20110715060658 47731de9
 D a-stream.ads		20110715060658 2ca4ee37
 D a-tags.ads		20110715060658 c7695348
 D a-textio.ads		20110715060658 386df5d4
+D a-tiflio.ads		20110715060658 56fbda09
 D a-tiinio.ads		20110715060658 aa04e5d6
 D a-unccon.ads		20110715060658 f9eb8f06
 D gen_tree.ads		20121013183608 867a0a45
 D interfac.ads		20110715060702 f77d8799
 D i-cstrea.ads		20110715060702 1bd72c32
+D main.adb		20121013185359 f50fc321
 D system.ads		20110715060713 981f3aca
+D s-conca2.ads		20110715060704 fbd0f2fc
 D s-crtl.ads		20110715060704 ac77b159
 D s-exctab.ads		20110715060704 66e51330
 D s-ficobl.ads		20110715060704 443b9d66
@@ -42,22 +52,33 @@ D s-stratt.ads		20110715060705 aedef97e
 D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
-D tree_expression.ads	20121013183625 1b98fe6a
-D tree_expression_test.adb  20121013183732 cd85ea17
+D tree_expression.ads	20121013190036 ece46a1c
 X 1 ada.ads
-16K9*Ada 19e8 35|2r6 2r23
-X 11 a-textio.ads
-49K13*Text_IO 472e16 35|2w10 2r27
-243U14*Put 35|9s5
-X 14 gen_tree.ads
+16K9*Ada 19e8 20|2r6 2r23 3r6 3r29 4r6 4r28
+X 2 a-comlin.ads
+38K13*Command_Line 139e21 20|4w10 4r32
+48V13*Argument{string} 20|9s23
+X 6 a-flteio.ads
+20K13*Float_Text_IO[14|45] 20|3w10 3r33
+X 13 a-textio.ads
+49K13*Text_IO 472e16 20|2w10 2r27
+167U14*New_Line 20|15s5
+243U14*Put 20|13s5
+264U14*Put_Line 20|10s5 11s5 12s5 18s9
+X 14 a-tiflio.ads
+67U14*Put 20|14s5[6|20]
+X 17 gen_tree.ads
 11R9*Node_Type
-12P9*Node_Ptr(11R9[34|17])
-X 34 tree_expression.ads
-13K9*Tree_Expression 35e20 35|1w6 1r27
-22P12*Expression_Node_Ptr{14|12P9[17]} 35|5r12
-24V13*Construct{22P12} 35|7s13
-28V13*Infix_Notation{string} 35|9s11
-X 35 tree_expression_test.adb
-4U11*Tree_Expression_Test 4b11 10l5 10t25
-5p5 Tree{34|22P12} 7m5
+12P9*Node_Ptr(11R9[39|17])
+X 20 main.adb
+6U11*main 6b11 19l5 19t9
+7p5 Tree{39|22P12} 9m5 10r46 11r44 12r48 14r19
+X 39 tree_expression.ads
+13K9*Tree_Expression 20|1w6 1r27 39|39e20
+22P12*Expression_Node_Ptr{17|12P9[17]} 20|7r12
+24V13*Construct{22P12} 20|9s13
+26V13*Evaluate{float} 20|14s10
+28V13*Infix_Notation{string} 20|11s28
+29V13*Prefix_Notation{string} 20|10s29
+30V13*Postfix_Notation{string} 20|12s30
 

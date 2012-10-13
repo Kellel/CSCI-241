@@ -5,8 +5,21 @@ with Ada.Text_IO; use Ada.Text_IO;
 with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 
 procedure Gen_Tree_Test is
-    
-    package Char_Tree is new Gen_Tree ( CHARACTER );
+    type exp is character ( '+', '-', '*', '/');
+    type num is integer;
+    type var_type is (exp , num);
+    type var_record (Var : var_type, item :) is 
+        record
+            if Var = exp then
+                data : exp := item;
+            elsif Var = num then
+                data : num := item;
+            else
+                raise Record_Error;
+            end if;
+        end record;
+
+    package Var_Tree is new Gen_Tree ( var_record );
     use Char_Tree;
     type Tree is record
         Root : Node_Ptr := null;
@@ -14,7 +27,7 @@ procedure Gen_Tree_Test is
     Test_Tree : Tree;
     Ptr : Node_Ptr;
 begin
-    Test_Tree.Root := Create_Node ( 'A', null, null);
+    Test_Tree.Root := Create_Node (  bn'A', null, null);
     put ( Get_Data ( Test_Tree.Root ) );
     Ptr := Test_Tree.Root;
     Set_Left_Child ( Ptr, Create_Node ( 'B', null, Create_Node ( 'C', null, null)));

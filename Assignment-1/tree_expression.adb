@@ -1,5 +1,5 @@
 package body Tree_Expression is
-
+    -- Takes a character and makes it into a string 
     function To_String ( Input : Character ) return String is
         output : Tree_String;
     begin
@@ -11,23 +11,115 @@ package body Tree_Expression is
         end loop;
         return output;
     end To_String;
+    -- Grabs the First Operator Type and returns it 
+    function To_Char ( input : String ) return Character is
+    begin
+        for I in input'Range loop
+            if Operators(input(I)) then
+                return input(I);
+            end if;
+        end loop;
+        --Ada.Text_IO.Put_Line(''' & input & ''');
+        raise Operator_Error;
+    end To_Char;
+    -- Grabs one whole Integer type and returns it as a float
+    function To_Number ( input : String ) return Float is
+        output : Integer;
+        First : Integer := -1;
+        Last : Positive;
+    begin
+        -- find the first number in the string
+        for I in input'Range loop
+            if Numbers(input(I)) then
+                First := I;
+                exit;
+            end if;
+        end loop;
+        -- Make sure a first number was found
+        if First = -1 then 
+            Ada.Text_IO.Put_Line(input);
+            raise Number_Error;
+        end if;
+        -- If the First and Last number are the same just get the number
+        if First = input'First then
+            Ada.Integer_Text_IO.Get(From=>input, Item=>output, Last=>last);
+            return float(output);
+        else
+            Ada.Integer_Text_IO.Get(input(First .. input'Last), output, last);
+            return float(output);
+        end if;
+    end To_Number;
 
+    -- Attempts to Construct an Expression Tree from a string...
     function Construct ( Expression_String : String ) return Expression_Node_Ptr is
-        -- subtype Expression_Type is Character ( '+', '-', '*', '/' );
+        procedure Get_Operator ( Expression : String; Last : out Positive; Item : out Character ) is 
+            Paren : Natural := 0; 
+        begin
+            Item := ' ';
+           -- Ada.Text_IO.Put_Line(Expression);
+            for i in Expression'Range loop
+                case(Expression(i)) is
+                    when '(' =>
+                        Paren := Paren + 1;
+                    when ')' =>
+                        Paren := Paren - 1;
+                    when '+'|'-'|'*'|'/'|'^' =>
+                        if Paren = 1 then
+                            Last := i;
+                            Item := Expression(i);
+                            exit;
+                        end if;
+                    when others =>
+                        null;
+                end case;
+            end loop;
+            -- Make sure an operator was found by raising an exception if there is no item or last
+            if Item = ' ' then
+                raise Operator_Error;
+            end if;
+            return;
+        end Get_Operator;
+        function Get_Number (Expression : String) return String is
+            output : Tree_String;
+            last : Natural := output'First;
+        begin
+            --Ada.Text_IO.Put_Line(Expression);
+            for i in Expression'Range loop
+                if Numbers(Expression(i)) then
+                    output(last) := Expression(i);
+                    last := last + 1;
+                end if;
+            end loop;
+            if last = output'First then
+                raise Number_Error;
+            end if;
+            for i in Last .. output'Last loop
+                output(i) := ' ';
+            end loop;
+            return output;
+        end Get_Number;
+        -- subtype Expressionession_Type is Character ( '+', '-', '*', '/' );
         -- Recursive function to parse an Expression_String
         -- based on the assumption that you can use a range as an index
         -- if ( ) remove the parens and send the inside stuff back into recursion
+        function construct_2 ( Expression : String ) return Expression_Node_Ptr is
+            Operator : Character;
+            Last : Positive;
+        begin
+            Get_Operator(Expression, Last, Operator);
+            return GT.Create_Node(To_String(Operator), construct_2(Expression(Expression'First + 1 .. Last -1)), construct_2(Expression(Last + 1 .. Expression'Last - 1)));
+        exception
+            when Operator_Error =>
+                Ada.Text_IO.Put_Line(Expression);
+                return GT.Create_Node(Get_Number(Expression), null, null);
+        end construct_2;
         function construct ( Expression : String ) return Expression_Node_Ptr is
             Number_Length : Natural := 1;
             Last : Natural := Expression'Last;
             First : Natural := Expression'First;
             Paren : Integer := 0;
         begin
-            -- Look for Operator first 
-            --Ada.Text_IO.put("Testing");
-            --Ada.Text_IO.put_line(Expression);
             for I in Expression'Range loop
-
                 if Expression (I) = '(' then
                     Paren := Paren + 1;
                 elsif Expression (I) = ')' then
@@ -40,47 +132,21 @@ package body Tree_Expression is
                     elsif (I + 1) = Last then
                         return GT.Create_Node(To_String(Expression(I)), construct(Expression((First + 1) .. (I - 1))), construct(To_String(Expression(I + 1))));
                     else
-                        --Ada.Integer_Text_IO.put(First+1);
-                        --Ada.Text_IO.put("-");
-                        --Ada.Integer_Text_IO.put(I-1);
-                        --Ada.Text_IO.Put_Line(Expression((First + 1).. (I - 1)));
                         return GT.Create_Node(To_String(Expression(I)), construct(Expression((First + 1) .. (I - 1))), construct(Expression((I + 1) .. Last)));
                     end if;
                 end if;
             end loop;
-            -- 
-            -- **** My embeded rant about ada ****
-            --    ** Disclaimer **
-            --      This really doesn't have much to do with this assignment, but I was annoyed enough when I was writing this assignment that 
-            --      I fugure I might as well leave it in. Don't feel obligated to read it.
-            --
-            --  For the most part I have no problem with ada. I view the complexities of ada almost like a chalenge, 
-            --  but for this assignment I ran into one major flaw: the attributes associated with a given array seem to
-            --  be static. For example, if you have a recursive function like this one, if you send just a portion of 
-            --  an array back into the function the 'First and the 'Last are never recomputed. Lets say you have
-            --  an array with a range of (1 .. 20). The first time through the recursion if you viewed 'First you would get 1, 
-            --  as you would expect. Now lets say your recursive call sends the last half of the string back
-            --  into the function. If you viewed 'First now you would get 10... wut? Now forgive me if I'm wrong, 
-            --  but that makes NO sense. OK, fine. I get it, when the function returns the smaller part it just doesn't
-            --  give you a new string with the new subset of characters in it, it just cuts the thing in half and gives it back to you... 
-            --  0.o  What were the people who wrote this really that lazy? 
-            --  And why was this never covered in any of the beginning ada classes? 
-            --  This explains why every time I have attempted to write a recursive ada function I have failed...
-            --       **** End Rant ****
-            --
             declare
                 First_Number : Natural := Expression'First;
                 Last_Number  : Natural;
             begin
                 for J in Expression'Range loop
-             --       Ada.Integer_Text_IO.put(J);
                     if not Numbers(Expression(J)) then
                         First_Number := First_Number + 1;
                     end if;
                 end loop;
                 Last_Number := First_Number;
                 for I in Expression'Range loop
-             --       Ada.Integer_Text_IO.put(I);
                     if Numbers(Expression(I)) and I > First_Number then
                         Last_Number := Last_Number + 1;
                     end if;
@@ -90,14 +156,7 @@ package body Tree_Expression is
                 elsif First_Number = Expression'First and Last_Number = Expression'Last then
                     return GT.Create_Node(Expression, null, null);
                 else
-                    Ada.Text_IO.Put_Line(Expression);
-                    Ada.Integer_Text_IO.put(First_Number);
-                    Ada.Integer_Text_IO.put(Expression'First);
-                    Ada.Integer_Text_IO.put(Last_Number);
-                    Ada.Integer_Text_IO.put(Expression'Last);
-                    Ada.Integer_Text_IO.put(Expression'Length);
-                    Ada.Text_IO.new_line;
-                    return GT.Create_Node(Expression(0 .. 1), null, null);
+                    return GT.Create_Node(Expression(First_Number .. Last_Number), null, null);
                 end if;
             end;
         end construct;
@@ -109,12 +168,36 @@ package body Tree_Expression is
                 Expression_Save(I) := ' ';
             end if;
         end loop;
-        return construct ( Expression_String );
+        return construct_2 ( Expression_String );
     end Construct;
 
-    function Evaluate ( Node : Expression_Node_Ptr ) return Float is 
+    function Evaluate ( Node : Expression_Node_Ptr ) return Float is
+        function eval ( Node : Expression_Node_Ptr ) return Float is 
+            Data : Tree_String := GT.Get_Data(Node);
+            Operator : Character := To_Char (Data);
+        begin
+            case Operator is
+                when '+' =>
+                    Ada.Text_IO.put('+');
+                    return eval(GT.Get_Left_Child(Node)) + eval(GT.Get_Right_Child(Node));
+                when '-' =>
+                    return eval(GT.Get_Left_Child(Node)) - eval(GT.Get_Right_Child(Node));
+                when '*' =>
+                    return eval(GT.Get_Left_Child(Node)) * eval(GT.Get_Right_Child(Node));
+                when '/' =>
+                    return eval(GT.Get_Left_Child(Node)) / eval(GT.Get_Right_Child(Node));
+                when '^' =>
+                    return Float_Functions."**"(eval(GT.Get_Left_Child(Node)), eval(GT.Get_Left_Child(Node)));
+                when others =>
+                    raise Expression_Error;
+            end case;
+        exception
+            when Operator_Error =>
+                Ada.Float_Text_IO.Put(To_Number(Data));
+                return To_Number (Data);
+        end eval;
     begin
-        return 2.345;
+        return eval (Node);
     end Evaluate;
 
     function Infix_Notation ( Node : Expression_Node_Ptr ) return String is 
@@ -133,3 +216,5 @@ package body Tree_Expression is
     end Postfix_Notation;
 
 end Tree_Expression;
+
+

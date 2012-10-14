@@ -3,7 +3,7 @@ M P W=b
 P SS ZX
 R nnnnnnnnnnnnnnnnnnvnnvnnvvnnnnnnnnnnnnnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
 
-U main%b		main.adb		20a0d1ec NE OO SU IL
+U main%b		main.adb		9746b9c9 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.command_line%s	a-comlin.adb		a-comlin.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -33,7 +33,7 @@ D a-unccon.ads		20110715060658 f9eb8f06
 D gen_tree.ads		20121013183608 867a0a45
 D interfac.ads		20110715060702 f77d8799
 D i-cstrea.ads		20110715060702 1bd72c32
-D main.adb		20121013185359 f50fc321
+D main.adb		20121014155931 f50fc321
 D system.ads		20110715060713 981f3aca
 D s-conca2.ads		20110715060704 fbd0f2fc
 D s-crtl.ads		20110715060704 ac77b159
@@ -52,7 +52,7 @@ D s-stratt.ads		20110715060705 aedef97e
 D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
-D tree_expression.ads	20121013190036 ece46a1c
+D tree_expression.ads	20121014152143 5b020239
 X 1 ada.ads
 16K9*Ada 19e8 20|2r6 2r23 3r6 3r29 4r6 4r28
 X 2 a-comlin.ads
@@ -69,16 +69,16 @@ X 14 a-tiflio.ads
 67U14*Put 20|14s5[6|20]
 X 17 gen_tree.ads
 11R9*Node_Type
-12P9*Node_Ptr(11R9[39|17])
+12P9*Node_Ptr(11R9[39|18])
 X 20 main.adb
 6U11*main 6b11 19l5 19t9
-7p5 Tree{39|22P12} 9m5 10r46 11r44 12r48 14r19
+7p5 Tree{39|23P12} 9m5 10r46 11r44 12r48 14r19
 X 39 tree_expression.ads
-13K9*Tree_Expression 20|1w6 1r27 39|39e20
-22P12*Expression_Node_Ptr{17|12P9[17]} 20|7r12
-24V13*Construct{22P12} 20|9s13
-26V13*Evaluate{float} 20|14s10
-28V13*Infix_Notation{string} 20|11s28
-29V13*Prefix_Notation{string} 20|10s29
-30V13*Postfix_Notation{string} 20|12s30
+14K9*Tree_Expression 20|1w6 1r27 39|45e20
+23P12*Expression_Node_Ptr{17|12P9[18]} 20|7r12
+25V13*Construct{23P12} 20|9s13
+27V13*Evaluate{float} 20|14s10
+29V13*Infix_Notation{string} 20|11s28
+30V13*Prefix_Notation{string} 20|10s29
+31V13*Postfix_Notation{string} 20|12s30
 

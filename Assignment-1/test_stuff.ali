@@ -1,21 +1,23 @@
 V "GNAT Lib v4.6"
 M P W=b
 P SS ZX
-R nnnnnnnnnnnnnnnnnnnnnnnnnvnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+R nnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
 
-U test_stuff%b		test_stuff.adb		910b116b NE OO SU IL KM
+U test_stuff%b		test_stuff.adb		08c0708d NE OO SU IL KM
 W ada%s			ada.ads			ada.ali
-W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 
 D ada.ads		20110715060658 3ffc8e18
 D a-except.ads		20110715060658 0c711ac9
 D a-finali.ads		20110715060658 e5e85fa4
 D a-filico.ads		20110715060658 872dc219
+D a-inteio.ads		20110715060658 f64b89a4
 D a-ioexce.ads		20110715060658 8b9de6cd
 D a-stream.ads		20110715060658 2ca4ee37
 D a-tags.ads		20110715060658 c7695348
 D a-textio.ads		20110715060658 386df5d4
+D a-tiinio.ads		20110715060658 aa04e5d6
 D a-unccon.ads		20110715060658 f9eb8f06
 D interfac.ads		20110715060702 f77d8799
 D i-cstrea.ads		20110715060702 1bd72c32
@@ -36,14 +38,22 @@ D s-stratt.ads		20110715060705 aedef97e
 D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
-D test_stuff.adb	20121011141402 a966e4bf
+D test_stuff.adb	20121014151642 c6e60cfd
 X 1 ada.ads
-16K9*Ada 19e8 29|1r6 1r23
-X 8 a-textio.ads
-49K13*Text_IO 472e16 29|1w10 1r27
-243U14*Put 29|8s9 10s9
-X 29 test_stuff.adb
-3U11*test_stuff 3b11 12l5 12t15
-4A10 Test_Set(boolean)<character> 5r21
-5a5 Test{4A10} 7r8
+16K9*Ada 19e8 31|1r6 1r23 2r6 9r5 10r5
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[10|45] 31|2w10 9r9 10r9
+X 9 a-textio.ads
+49K13*Text_IO 472e16 31|1w10 1r27
+X 10 a-tiinio.ads
+65U14*Put 31|10s25[5|18]
+70U14*Get 31|9s25[5|18]
+71s7 From{string} 31|9r29[5|18]
+72i7 Item{integer} 31|9r42[5|18]
+73i7 Last{positive} 31|9r56[5|18]
+X 31 test_stuff.adb
+4U11*test_stuff 4b11 11l5 11t15
+5a5 input{string} 9r35
+6i5 output{integer} 9m48 10r29
+7i5 last{positive} 9m62
 

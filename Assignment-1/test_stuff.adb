@@ -1,12 +1,11 @@
 with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Integer_Text_IO;
 
 Procedure test_stuff is
-    type Test_Set is array (Character) of Boolean;
-    Test : constant Test_Set := ('1'=>True, others=>False);
+    input : String := "1234";
+    output : integer;
+    last : positive;
 begin
-    if Test('2') then
-        put ("Win");
-    else
-        put("Fail");
-    end if;
+    Ada.Integer_Text_IO.Get(From=>input, Item=>output, Last=>last);
+    Ada.Integer_Text_IO.put(output);
 end test_stuff;

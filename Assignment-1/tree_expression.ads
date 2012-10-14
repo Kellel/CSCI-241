@@ -7,6 +7,7 @@
 
 with Ada.Text_IO;--For testing... disable for production
 with Ada.Integer_Text_IO;
+with Ada.Float_Text_IO;
 with Gen_Tree;
 with Ada.Exceptions;
 with Ada.Numerics.Generic_Elementary_Functions;
@@ -31,9 +32,14 @@ PACKAGE Tree_Expression IS
 
    Expression_Error : exception;
 private
-   Expression_Save : String(1 .. 30);
-   type Char_Set is array (Character) of Boolean;
-   Numbers : constant Char_Set := ('0'=>True, '1'=>True, '2'=>True, '3'=>True, '4'=>True, '5'=>true, '6'=>True, '7'=>True, '8'=>True, '9'=>True, others=>False);
-   Operators : constant Char_Set := ('+'=>True, '-'=>True, '*'=>True, '/'=>True, '^'=>True, Others=>False);
+    function To_Char (input : String) return Character;
+    function To_Number (input : String) return Float;
+    function To_String (Input : Character) return String;
+    Expression_Save : String(1 .. 30);
+    Number_Error : exception;
+    Operator_Error : exception;
+    type Char_Set is array (Character) of Boolean;
+    Numbers : constant Char_Set := ('0'=>True, '1'=>True, '2'=>True, '3'=>True, '4'=>True, '5'=>true, '6'=>True, '7'=>True, '8'=>True, '9'=>True, others=>False);
+    Operators : constant Char_Set := ('+'=>True, '-'=>True, '*'=>True, '/'=>True, '^'=>True, Others=>False);
 
 end Tree_Expression;

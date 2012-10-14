@@ -11,7 +11,7 @@ begin
     put_line ( "Infix: " & Infix_Notation (Tree));
     put_line ( "Postfix: " & Postfix_Notation (Tree));
     put ("Value: ");
-    put (Evaluate(Tree));
+    put (Item=>Evaluate(Tree),Aft=>2, Exp=>0);
     new_line;
 exception
     when Constraint_Error => 

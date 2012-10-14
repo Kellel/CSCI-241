@@ -1,16 +1,16 @@
 V "GNAT Lib v4.6"
 P SS ZX
-R nnnnnnnnnnnnnnnnnnvnnvnnvvnnnvnnnnnnnvnnnvnnvnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
+R nnnnnnnnnnnnnnnnnnvnnvnnvnnnnvnnnnnnnvnnnvnnvnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
 
-U tree_expression%b	tree_expression.adb	2a887c6a NE OO PK
+U tree_expression%b	tree_expression.adb	fa75de8e NE OO PK
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.tags%s		a-tags.adb		a-tags.ali
 W interfaces%s		interfac.ads		interfac.ali
-W system.concat_3%s	s-conca3.adb		s-conca3.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.soft_links%s	s-soflin.adb		s-soflin.ali
 
-U tree_expression%s	tree_expression.ads	b9d6348c EE OO PK KU
+U tree_expression%s	tree_expression.ads	482cb393 EE OO PK KU
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.float_text_io%s	a-flteio.ads		a-flteio.ali
@@ -19,9 +19,10 @@ W ada.numerics%s	a-numeri.ads		a-numeri.ali
 W ada.numerics.aux%s	a-numaux.adb		a-numaux.ali
 W ada.numerics.generic_elementary_functions%s
 W ada.tags%s		a-tags.adb		a-tags.ali
-W ada.text_io%s		a-textio.adb		a-textio.ali
 W gen_tree%s		gen_tree.adb		gen_tree.ali  AD
 W system%s		system.ads		system.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
+W system.concat_3%s	s-conca3.adb		s-conca3.ali
 W system.exception_table%s  s-exctab.adb	s-exctab.ali
 W system.exn_llf%s	s-exnllf.adb		s-exnllf.ali
 W system.fat_flt%s	s-fatflt.ads		s-fatflt.ali
@@ -46,11 +47,12 @@ D a-textio.ads		20110715060658 386df5d4
 D a-tiflio.ads		20110715060658 56fbda09
 D a-tiinio.ads		20110715060658 aa04e5d6
 D a-unccon.ads		20110715060658 f9eb8f06
-D gen_tree.ads		20121013183608 867a0a45
-D gen_tree.adb		20121010154316 85434ae6
+D gen_tree.ads		20121014201932 63aab8f5
+D gen_tree.adb		20121014202430 c639ea1b
 D interfac.ads		20110715060702 f77d8799
 D i-cstrea.ads		20110715060702 1bd72c32
 D system.ads		20110715060713 981f3aca
+D s-conca2.ads		20110715060704 fbd0f2fc
 D s-conca3.ads		20110715060704 762a026a
 D s-crtl.ads		20110715060704 ac77b159
 D s-exctab.ads		20110715060704 66e51330
@@ -71,117 +73,103 @@ D s-stratt.ads		20110715060705 aedef97e
 D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
-D tree_expression.ads	20121014152143 5b020239
-D tree_expression.adb	20121014190947 718a7e53
+D tree_expression.ads	20121014204510 7b34d88b
+D tree_expression.adb	20121014203848 81410605
 X 1 ada.ads
-16K9*Ada 19e8 43|8r6 9r6 10r6 12r6 13r6 20r35 44|40r13 45r13 49r13
-X 2 a-except.ads
-55K13*Exceptions 370e19 43|12w10
+16K9*Ada 19e8 44|9r6 10r6 12r6 20r35 45|55r13 59r13
 X 5 a-flteio.ads
-20K13*Float_Text_IO[15|45] 43|10w10
+20K13*Float_Text_IO[15|45] 44|10w10
 X 6 a-inteio.ads
-18K13*Integer_Text_IO[16|45] 43|9w10 44|45r17 49r17
+18K13*Integer_Text_IO[16|45] 44|9w10 45|55r17 59r17
 X 8 a-numeri.ads
-16K13*Numerics 32e17 43|13r10 20r39
+16K13*Numerics 32e17 44|12r10 20r39
 X 10 a-ngelfu.ads
-17F9 Float_Type 43|21r7
-19k22*Generic_Elementary_Functions 73e46 43|13w19 20r48
-26V13*"**"{float} 44|149s44[43|20] 165s48[43|20]
-X 14 a-textio.ads
-49K13*Text_IO 472e16 43|8w10 44|40r17
-264U14*Put_Line 44|40s25
+17F9 Float_Type 44|21r7
+19k22*Generic_Elementary_Functions 73e46 44|12w19 20r48
+26V13*"**"{float} 45|179s44[44|20]
 X 16 a-tiinio.ads
-70U14*Get 44|45s33[6|18] 49s33[6|18]
-71s7 From{string} 44|45r37[6|18]
-72i7 Item{integer} 44|45r50[6|18]
-73i7 Last{positive} 44|45r64[6|18]
+70U14*Get 45|55s33[6|18] 59s33[6|18]
+71s7 From{string} 45|55r37[6|18]
+72i7 Item{integer} 45|55r50[6|18]
+73i7 Last{positive} 45|55r64[6|18]
 X 18 gen_tree.ads
-10k9*Gen_Tree 37e13 43|11w6 18r42
-11R9*Node_Type
-12P9*Node_Ptr(11R9[43|18]) 43|23r58[18]
-14V13*Create_Node{12P9[43|18]} 44|116s23[43|18] 120s27[43|18]
-16V13*Get_Data{string} 44|135s38[43|18] 157s45[43|18] 157s95[43|18] 159s45[43|18]
-. 159s95[43|18] 161s45[43|18] 161s95[43|18] 163s45[43|18] 163s95[43|18] 165s66[43|18]
-. 165s115[43|18] 181s25[43|18] 184s29[43|18] 184s55[43|18] 184s101[43|18]
-. 189s114[43|18] 192s29[43|18] 192s75[43|18] 192s122[43|18]
-19V13*Get_Left_Child{12P9[43|18]} 44|141s36[43|18] 143s36[43|18] 145s36[43|18]
-. 147s36[43|18] 149s57[43|18] 149s88[43|18] 157s57[43|18] 159s57[43|18] 161s57[43|18]
-. 163s57[43|18] 165s78[43|18] 181s61[43|18] 184s67[43|18] 189s36[43|18] 192s41[43|18]
-22V13*Get_Right_Child{12P9[43|18]} 44|141s68[43|18] 143s68[43|18] 145s68[43|18]
-. 147s68[43|18] 157s107[43|18] 159s107[43|18] 161s107[43|18] 163s107[43|18]
-. 165s127[43|18] 181s104[43|18] 184s113[43|18] 189s80[43|18] 192s87[43|18]
-29X4*Node_Error 44|183r17[43|18] 191r17[43|18]
-X 43 tree_expression.ads
-14K9*Tree_Expression 45l5 45e20 44|1b14 195l5 195t20
-16i4*String_Size{natural} 17r40
-17A12*Tree_String{string}<integer> 18r51 44|4r18 89r22 135r20
-18K12*Binary_Expression_Tree[18|10] 19r23 23r35
-19K12*GT=19:23 44|116r20 120r24 135r35 141r33 141r65 143r33 143r65 145r33
-. 145r65 147r33 147r65 149r54 149r85 157r42 157r54 157r92 157r104 159r42
-. 159r54 159r92 159r104 161r42 161r54 161r92 161r104 163r42 163r54 163r92
-. 163r104 165r63 165r75 165r112 165r124 181r22 181r58 181r101 183r14 184r26
-. 184r52 184r64 184r98 184r110 189r33 189r77 189r111 191r14 192r26 192r38
-. 192r72 192r84 192r119
-20K12*Float_Functions[10|19] 44|149r28 165r32
-23P12*Expression_Node_Ptr{18|12P9[18]} 25r59 27r30 29r36 30r37 31r38 44|60r62
-. 111r61 133r32 134r32 174r38 179r39 187r40
-25V13*Construct{23P12} 25>24 44|60b14 131l9 131t18
-25s24 Expression_String{string} 44|60b26 124r21 125r39 130r30
-27V13*Evaluate{float} 27>23 44|133b14 172l9 172t17
-27p23 Node{23P12} 44|133b25 171r22
-29V13*Infix_Notation{string} 29>29 44|174b14 177l9 177t23
-29p29 Node{23P12} 44|174b31
-30V13*Prefix_Notation{string} 30>30 44|179b14 181s42 181s85 185l9 185t24
-30p30 Node{23P12} 44|179b32 181r34 181r76 181r120 184r38 184r82 184r129
-31V13*Postfix_Notation{string} 31>31 44|187b14 189s16 189s60 193l9 193t25
-31p31 Node{23P12} 44|187b33 189r51 189r96 189r123 192r56 192r103 192r131
-33X4*Expression_Error 44|151r27 167r31
-35V14 To_Char{character} 35>23 44|15b14 24l9 24t16 136s37
-35s23 input{string} 44|15b24 17r18 18r26 19r24
-36V14 To_Number{float} 36>25 44|26b14 53l9 53t18 157s32 157s82 159s32 159s82
-. 161s32 161s82 163s32 163s82 165s53 165s102
-36s25 input{string} 44|26b26 32r18 33r24 40r34 44r20 45r43 49r37 49r52
-37V14 To_String{string} 37>25 44|3b14 13l9 13t18 116s35
-37e25 Input{character} 44|3b26 6r36
-38a5 Expression_Save{string} 44|123r18 125m17 127m17 176r16
-39X5 Number_Error 44|41r19 100r23
-40X5 Operator_Error 44|23r15 84r23 118r18 154r18
-41A10 Char_Set(boolean)<character> 42r24 43r26
-42a5 Numbers{41A10} 44|33r16 94r20
-43a5 Operators{41A10} 44|18r16
-X 44 tree_expression.adb
-4a9 output{43|17A12} 6m9 6r18 7r18 8r20 9m17 12r16
-7i13 I{integer} 8r16 9r24
-17i13 I{integer} 18r32 19r30
-27i9 output{integer} 45m56 47r26 49m65 51r26
-28i9 First{integer} 34m17 39r12 44r12 49r43
-29i9 Last{positive} 45m70 49m73
-32i13 I{integer} 33r30 34r26
-54V14 Short{string} 54b14 54>22 57l9 57t14 181s16 184s20 184s46 184s92 189s105
-. 192s20 192s66 192s113
-54s22 input{string} 56r16 56r22 56r37
-61U19 Get_Operator 61b19 61>34 61<55 61<76 87l13 87t25 115s13
-61s34 Expression{string} 66r22 67r22 75r37
-61i55 Last{positive} 74m29
-61e76 Item{character} 64m13 75m29 83r16
-62i13 Paren{natural} 69m25 69r34 71m25 71r34 73r28
-66i17 i{integer} 67r33 74r37 75r48
-88V18 To_Number{string} 88b18 88>29 106l13 106t22 120s39
-88s29 Expression{string} 93r22 94r28 95r37
-89a13 output{43|17A12} 90r31 95m21 99r23 102r30 103m17 105r20
-90i13 last{natural} 95r28 96m21 96r29 99r16 102r22
-93i17 i{integer} 94r39 95r48
-102i17 i{integer} 103r24
-111V18 construct_2{43|23P12} 111b18 111>32 116s56 116s114 121l13 121t24 130s16
-111s32 Expression{string} 115r26 116r68 116r79 116r126 116r149 120r49
-112e13 Operator{character} 115m44 116r45
-113i13 Last{positive} 115m38 116r103 116r137
-123i13 I{integer} 124r16 125r33 125r57 127r33
-134V18 eval{float} 134b18 134>25 141s28 141s60 143s28 143s60 145s28 145s60
-. 147s28 147s60 149s49 149s80 169l13 169t17 171s16
-134p25 Node{43|23P12} 135r47 141r51 141r84 143r51 143r84 145r51 145r84 147r51
-. 147r84 149r72 149r103 157r72 157r123 159r72 159r123 161r72 161r123 163r72
-. 163r123 165r93 165r143
-135a13 Data{43|17A12} 136r46
-136e13 Operator{character} 138r18 155r22
+11k9*Gen_Tree 44e13 44|11w6 18r42
+12R9*Node_Type
+13P9*Node_Ptr(12R9[44|18]) 44|23r58[18]
+16V13*Create_Node{13P9[44|18]} 45|136s23[44|18] 140s27[44|18]
+19V13*Get_Data{string} 45|159s38[44|18]
+24V13*Get_Left_Child{13P9[44|18]} 45|167s36[44|18] 170s36[44|18] 173s36[44|18]
+. 176s36[44|18] 179s57[44|18] 179s88[44|18]
+28V13*Get_Right_Child{13P9[44|18]} 45|167s68[44|18] 170s68[44|18] 173s68[44|18]
+. 176s68[44|18]
+32V13*Preorder_Traversal{string} 45|206s19[44|18]
+33V13*Postorder_Traversal{string} 45|214s19[44|18]
+X 44 tree_expression.ads
+13K9*Tree_Expression 50l5 50e20 45|1b14 217l5 217t20
+15i4*String_Size{natural} 16r40
+16A12*Tree_String{string}<integer> 17r32 18r51 45|4r34 70r22 109r22 159r20
+17V13*To_String{string} 17>24 18r64 45|4b14 18l9 18t18
+17a24 Input{16A12} 45|4b26 7r18 8r16 14r20 14r26 16r20 16r26
+18K12*Binary_Expression_Tree[18|11] 19r23 23r35
+19K12*GT=19:23 45|136r20 140r24 159r35 167r33 167r65 170r33 170r65 173r33
+. 173r65 176r33 176r65 179r54 179r85 206r16 214r16
+20K12*Float_Functions[10|19] 45|179r28
+23P12*Expression_Node_Ptr{18|13P9[18]} 26r59 29r30 32r36 33r37 34r38 45|67r62
+. 131r61 156r32 158r32 196r38 204r39 212r40
+26V13*Construct{23P12} 26>24 45|67b14 151l9 151t18
+26s24 Expression_String{string} 45|67b26 144r21 145r39 150r30
+29V13*Evaluate{float} 29>23 45|156b14 191l9 191t17
+29p23 Node{23P12} 45|156b25 190r22
+32V13*Infix_Notation{string} 32>29 45|196b14 199l9 199t23
+32p29 Node{23P12} 45|196b31
+33V13*Prefix_Notation{string} 33>30 45|204b14 207l9 207t24
+33p30 Node{23P12} 45|204b32 206r38
+34V13*Postfix_Notation{string} 34>31 45|212b14 215l9 215t25
+34p31 Node{23P12} 45|212b33 214r39
+37X4*Expression_Error 45|182r27
+38X4*Number_Error 45|51r19 120r23
+40V14 To_Char{character} 40>23 45|23b14 32l9 32t16 163s25
+40s23 input{string} 45|23b24 25r18 26r26 27r24
+41V14 To_Number{float} 41>25 45|37b14 62l9 62t18 187s24
+41s25 input{string} 45|37b26 43r18 44r24 54r20 55r43 59r37 59r52
+42a5 Expression_Save{string} 45|143r18 145m17 147m17 198r16
+43X5 Operator_Error 45|31r15 104r23 138r18 185r18
+46A10 Char_Set(boolean)<character> 47r24 48r26
+47a5 Numbers{46A10} 45|44r16 114r20
+48a5 Operators{46A10} 45|26r16
+X 45 tree_expression.adb
+5i9 last{natural} 9m17 9r25 12r12 16r41
+7i13 I{integer} 8r22
+25i13 I{integer} 26r32 27r30
+38i9 output{integer} 55m56 56r26 59m65 60r26
+39i9 First{integer} 45m17 50r12 54r12 59r43
+40i9 Last{positive} 55m70 59m73
+43i13 I{integer} 44r30 45r26
+69V18 To_String{string} 69b18 69>30 79l13 79t22 136s35
+69e30 Input{character} 72r38
+70a13 output{44|16A12} 72m13 72r21 73r22 74r24 75m21 78r20
+73i17 I{integer} 74r20 75r28
+81U19 Get_Operator 81b19 81>34 81<55 81<76 107l13 107t25 135s13
+81s34 Expression{string} 86r22 87r22 95r37
+81i55 Last{positive} 94m29
+81e76 Item{character} 84m13 95m29 103r16
+82i13 Paren{natural} 89m25 89r34 91m25 91r34 93r28
+86i17 i{integer} 87r33 94r37 95r48
+108V18 To_Number{string} 108b18 108>29 126l13 126t22 140s39
+108s29 Expression{string} 113r22 114r28 115r37
+109a13 output{44|16A12} 110r31 115m21 119r23 122r30 123m17 125r20
+110i13 last{natural} 115r28 116m21 116r29 119r16 122r22
+113i17 i{integer} 114r39 115r48
+122i17 i{integer} 123r24
+131V18 construct_2{44|23P12} 131b18 131>32 136s56 136s114 141l13 141t24 150s16
+131s32 Expression{string} 135r26 136r68 136r79 136r126 136r149 140r49
+132e13 Operator{character} 135m44 136r45
+133i13 Last{positive} 135m38 136r103 136r137
+143i13 I{integer} 144r16 145r33 145r57 147r33
+158V18 eval{float} 158b18 158>25 167s28 167s60 170s28 170s60 173s28 173s60
+. 176s28 176s60 179s49 179s80 188l13 188t17 190s16
+158p25 Node{44|23P12} 159r47 167r51 167r84 170r51 170r84 173r51 173r84 176r51
+. 176r84 179r72 179r103
+159a13 Data{44|16A12} 163r33 187r34
+160e13 Operator{character} 163m13 164r18
 

@@ -1,16 +1,24 @@
 package body Tree_Expression is
-    -- Takes a character and makes it into a string 
-    function To_String ( Input : Character ) return String is
-        output : Tree_String;
+    -- **Generic To_String**
+    -- Takes a tree_string and and makes it into a shorter string 
+    function To_String ( Input : Tree_String ) return String is
+        last : Natural := 0;
     begin
-        output ( output'First ) := Input;
-        for I in output'Range loop
-            if I > output'First then
-                output(I) := ' ';
+        for I in Input'Range loop
+            if Input(I) /= ' ' then
+                last := last + 1;
             end if;
         end loop;
-        return output;
+        if last = 1 then 
+            -- the extra space adds readablity
+            return Input(Input'First)& ' ';
+        else 
+            return Input(Input'First .. last) & ' ';
+        end if;
     end To_String;
+
+----------------------------------------------------------------------
+
     -- Grabs the First Operator Type and returns it 
     function To_Char ( input : String ) return Character is
     begin
@@ -22,6 +30,9 @@ package body Tree_Expression is
         --Ada.Text_IO.Put_Line(''' & input & ''');
         raise Operator_Error;
     end To_Char;
+
+--------------------------------------------------------------------
+    --
     -- Grabs one whole Integer type and returns it as a float
     function To_Number ( input : String ) return Float is
         output : Integer;
@@ -37,27 +48,36 @@ package body Tree_Expression is
         end loop;
         -- Make sure a first number was found
         if First = -1 then 
-            Ada.Text_IO.Put_Line(input);
             raise Number_Error;
         end if;
         -- If the First and Last number are the same just get the number
         if First = input'First then
             Ada.Integer_Text_IO.Get(From=>input, Item=>output, Last=>last);
-            --Ada.Integer_text_IO.put(output);
             return float(output);
+        -- First and last are different so get a range of numbers
         else
             Ada.Integer_Text_IO.Get(input(First .. input'Last), output, last);
-            --Ada.Integer_Text_IO.put(output);
             return float(output);
         end if;
     end To_Number;
-    function Short ( input : String ) return String is
-    begin
-        return input(input'First .. input'First + 2);
-    end Short;
+
+--------------------------------------------------------------------------------
 
     -- Attempts to Construct an Expression Tree from a string...
     function Construct ( Expression_String : String ) return Expression_Node_Ptr is
+        -- Returns a string when given a character (nessisary for creating a node)
+        function To_String ( Input : Character ) return String is
+            output : Tree_String;
+        begin
+            output (output'first) := Input;
+            for I in output'Range loop
+                if I > output'First then
+                    output(I) := ' ';
+                end if;
+            end loop;
+            return output;
+        end To_String;
+        -- Returns the first Operator f
         procedure Get_Operator ( Expression : String; Last : out Positive; Item : out Character ) is 
             Paren : Natural := 0; 
         begin
@@ -130,66 +150,68 @@ package body Tree_Expression is
         return construct_2 ( Expression_String );
     end Construct;
 
+-----------------------------------------------------------------------------
+    --
+    -- recursive wrapper to Evaluate an Expression tree
     function Evaluate ( Node : Expression_Node_Ptr ) return Float is
+        --recursive algo
         function eval ( Node : Expression_Node_Ptr ) return Float is 
             Data : Tree_String := GT.Get_Data(Node);
-            Operator : Character := To_Char (Data);
+            Operator : Character;
         begin
+            -- Assume the char is always an operator
+            Operator := To_Char(Data);
             case Operator is
                 when '+' =>
-                    --Ada.Text_IO.put('+');
+                    -- Add the left and right
                     return eval(GT.Get_Left_Child(Node)) + eval(GT.Get_Right_Child(Node));
                 when '-' =>
+                    -- Subtract the left from the right
                     return eval(GT.Get_Left_Child(Node)) - eval(GT.Get_Right_Child(Node));
                 when '*' =>
+                    -- Multiply the right by the left
                     return eval(GT.Get_Left_Child(Node)) * eval(GT.Get_Right_Child(Node));
                 when '/' =>
+                    -- Divide the left by the right
                     return eval(GT.Get_Left_Child(Node)) / eval(GT.Get_Right_Child(Node));
                 when '^' =>
+                    -- return the left to the power of the right
                     return Float_Functions."**"(eval(GT.Get_Left_Child(Node)), eval(GT.Get_Left_Child(Node)));
                 when others =>
+                    -- shouldn't happen with valid input
                     raise Expression_Error;
             end case;
         exception
             when Operator_Error =>
-                case Operator is
-                    when '+' =>
-                        return To_Number(GT.Get_Data(GT.Get_Left_Child(Node))) + To_Number(GT.Get_Data(GT.Get_Right_Child(Node)));
-                    when '-' =>
-                        return To_Number(GT.Get_Data(GT.Get_Left_Child(Node))) + To_Number(GT.Get_Data(GT.Get_Right_Child(Node)));
-                    when '*' =>
-                        return To_Number(GT.Get_Data(GT.Get_Left_Child(Node))) * To_Number(GT.Get_Data(GT.Get_Right_Child(Node)));
-                    when '/' =>
-                        return To_Number(GT.Get_Data(GT.Get_Left_Child(Node))) / To_Number(GT.Get_Data(GT.Get_Right_Child(Node)));
-                    when '^' =>
-                        return Float_Functions."**"(To_Number(GT.Get_Data(GT.Get_Left_Child(Node))), To_Number(GT.Get_Data(GT.Get_Right_Child(Node))));
-                    when others =>
-                        raise Expression_Error;
-                end case;
+                -- It's not an operator, so it must be a number
+                return To_Number(Data);
         end eval;
     begin
         return eval (Node);
     end Evaluate;
 
+-----------------------------------------------------------------------------------------
+    --
+    -- It would be hard to get the parens back in the right order so I just save it and return the string 0.o
     function Infix_Notation ( Node : Expression_Node_Ptr ) return String is 
     begin
         return Expression_Save;
     end Infix_Notation;
 
+----------------------------------------------------------------------------------------
+    --
+    -- Return the Preorder_Traversal
     function Prefix_Notation ( Node : Expression_Node_Ptr ) return String is
     begin
-        return Short(GT.Get_Data(Node))& Prefix_Notation(GT.Get_Left_Child(Node)) & Prefix_Notation(GT.Get_Right_Child(Node));
-    exception
-        when GT.Node_Error =>
-            return Short(GT.Get_Data(Node))& Short(GT.Get_Data(GT.Get_Left_Child(Node))) & Short(GT.Get_Data(GT.Get_Right_Child(Node)));
+        return GT.Preorder_Traversal(Node);
     end Prefix_Notation;
 
+------------------------------------------------------------------------------------------
+    --
+    -- Return the Postorder_Traversal
     function Postfix_Notation ( Node : Expression_Node_Ptr ) return String is
     begin
-        return Postfix_Notation(GT.Get_Left_Child(Node)) & Postfix_Notation(GT.Get_Right_Child(Node)) & Short(GT.Get_Data(Node));
-    exception
-        when GT.Node_Error =>
-            return Short(GT.Get_Data(GT.Get_Left_Child(Node))) & Short(GT.Get_Data(GT.Get_Right_Child(Node))) & Short(GT.Get_Data(Node));
+        return GT.Postorder_Traversal(Node);
     end Postfix_Notation;
 
 end Tree_Expression;

@@ -4,6 +4,7 @@ package body Gen_Tree is
     function Create_Node ( Data : Item_Type; Left_Child, Right_Child : Node_Ptr) return Node_Ptr is
         New_Node : Node_Ptr;
     begin
+        -- New Node will have the input data, but also give you the option to recursively add nodes
         New_Node := new Node_Type'( Data, Left_Child, Right_Child );
         return New_Node;
     end Create_Node;
@@ -69,19 +70,42 @@ package body Gen_Tree is
         end if;
     end Set_Right_Child;
 
-    function Inorder_Traversal ( Node : Node_Ptr) return String is
-    begin
-        return "Test";
-    end Inorder_Traversal;
-
+    -- Returns a string of the preorder_traversal of a node
     function Preorder_Traversal ( Node : Node_Ptr ) return String is
     begin
-        return "Test";
+        -- Try to send the whole thing as if it never ends
+        return To_String(Node.Data) & Preorder_Traversal(Get_Left_Child(Node)) & Preorder_Traversal(Get_Right_Child(Node));
+    exception
+        when Node_Error =>
+            -- Leaf Node, return the data
+            if Node.Left_Child = null and Node.Right_Child = null then
+                return To_String(Node.Data);
+            -- Left_Child is a leaf node and right is not, return data and the right subtree
+            elsif Node.Left_Child = null then
+                return To_String(Node.Data) & Preorder_Traversal(Node.Right_Child);
+            -- Right_Child is a leaf node and left is not, return data and the left subtree
+            else
+                return To_String(Node.Data) & Preorder_Traversal(Node.Left_Child);
+            end if;
     end Preorder_Traversal;
 
+    -- Return the string of postorder upon this node
     function Postorder_Traversal ( Node : Node_Ptr ) return String is 
     begin
-        return "test";
+        -- Assume the tree is infinite 
+        return Postorder_Traversal(Get_Left_Child(Node)) & Postorder_Traversal(Get_Right_Child(Node)) & To_String(Node.Data);
+    exception
+        when Node_Error =>
+            -- Leaf node, return the data
+            if Node.Left_Child = null and Node.Right_Child = null then
+                return To_String(Node.Data);
+            -- left is null return right subtree and stuff
+            elsif Node.Left_Child = null then
+                return Postorder_Traversal(Node.Right_Child) & To_String(Node.Data);
+            -- right is null, return left subtree
+            else
+                return Postorder_Traversal(Node.Left_Child) & To_String(Node.Data);
+            end if;
     end Postorder_Traversal;
 
 end Gen_Tree;

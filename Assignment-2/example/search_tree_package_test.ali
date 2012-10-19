@@ -1,0 +1,98 @@
+V "GNAT Lib v4.6"
+M P W=b
+P SS ZX
+R nnnvnnnnnnnnnnnnnnvnnvnnnvvvnnnvnnvnnvnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
+
+U search_tree_package_test%b  search_tree_package_test.adb  fd8fcf92 NE OO SU
+W ada%s			ada.ads			ada.ali
+W ada.exceptions%s	a-except.adb		a-except.ali
+W ada.finalization%s	a-finali.adb		a-finali.ali
+W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
+W ada.tags%s		a-tags.adb		a-tags.ali
+W ada.text_io%s		a-textio.adb		a-textio.ali
+W search_tree_package%s	search_tree_package.adb	search_tree_package.ali
+W system%s		system.ads		system.ali
+W system.address_image%s  s-addima.adb		s-addima.ali
+W system.concat_2%s	s-conca2.adb		s-conca2.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.finalization_implementation%s  s-finimp.adb  s-finimp.ali
+W system.finalization_root%s  s-finroo.adb	s-finroo.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
+W system.soft_links%s	s-soflin.adb		s-soflin.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+W system.storage_elements%s  s-stoele.adb	s-stoele.ali
+W text_io%s		text_io.ads		text_io.ali
+W unchecked_deallocation%s
+
+D ada.ads		20110715060658 3ffc8e18
+D a-except.ads		20110715060658 0c711ac9
+D a-finali.ads		20110715060658 e5e85fa4
+D a-filico.ads		20110715060658 872dc219
+D a-inteio.ads		20110715060658 f64b89a4
+D a-ioexce.ads		20110715060658 8b9de6cd
+D a-stream.ads		20110715060658 2ca4ee37
+D a-tags.ads		20110715060658 c7695348
+D a-textio.ads		20110715060658 386df5d4
+D a-tiinio.ads		20110715060658 aa04e5d6
+D a-unccon.ads		20110715060658 f9eb8f06
+D interfac.ads		20110715060702 f77d8799
+D i-cstrea.ads		20110715060702 1bd72c32
+D search_tree_package.ads  20121002225426 415f27dc
+D search_tree_package.adb  20121002225426 8f3e7438
+D search_tree_package_test.adb  20121003091703 72f6943e
+D system.ads		20110715060713 981f3aca
+D s-addima.ads		20110715060704 a1ec9d3a
+D s-conca2.ads		20110715060704 fbd0f2fc
+D s-crtl.ads		20110715060704 ac77b159
+D s-exctab.ads		20110715060704 66e51330
+D s-ficobl.ads		20110715060704 443b9d66
+D s-finimp.ads		20110715060704 46853fe8
+D s-finroo.ads		20110715060704 dbb860c9
+D s-parame.ads		20110715060705 9c5d83fa
+D s-secsta.ads		20110715060705 eea35a36
+D s-soflin.ads		20110715060705 9414c974
+D s-stache.ads		20110715060705 596fc1b4
+D s-stalib.ads		20110715060705 c4241c00
+D s-stoele.ads		20110715060705 facd7d98
+D s-stoele.adb		20110715060705 afc5dc80
+D s-stratt.ads		20110715060705 aedef97e
+D s-traent.ads		20110715060707 5221ee41
+D s-unstyp.ads		20110715060707 6ae15c76
+D s-wchcon.ads		20110715060708 bfeb2e3d
+D text_io.ads		20110715060742 45d626c9
+D unchdeal.ads		20110715060810 214516a4
+X 1 ada.ads
+16K9*Ada 19e8 16|4r6 4r23 5r6 5r31
+X 5 a-inteio.ads
+18K13*Integer_Text_IO[10|45] 16|5w10 5r35
+X 9 a-textio.ads
+49K13*Text_IO 472e16 16|4w10 4r27
+167U14*New_Line 16|41s55 42s55
+243U14*Put 16|41s5 42s5
+264U14*Put_Line 16|46s23 50s31
+X 10 a-tiinio.ads
+65U14*Put 16|24s9[5|18] 41s21[5|18] 42s21[5|18] 46s13[5|18] 50s21[5|18]
+X 14 search_tree_package.ads
+31k9*Search_Tree_Package 67e24 16|3w6 13r29
+32P10 Tree_Ptr(50R10[16|13]) 16|20r9[13]
+33R10 Search_Tree<3|53R9> 16|18r9[13]
+38U15 Delete 16|55s5[13]
+39V15 Find{32P10[16|13]} 16|45s18[13]
+40V15 Find_Min{32P10[16|13]} 16|41s36[13]
+41V15 Find_Max{32P10[16|13]} 16|42s36[13]
+42U15 Insert 16|31s9[13] 37s9[13]
+43U15 Make_Empty 16|28s5[13]
+44U15 Print_Tree 16|54s5[13] 56s5[13]
+45V15 Retrieve{integer} 16|41s26[13] 42s26[13]
+47X5 Item_Not_Found 16|49r22[13]
+50R10 Tree_Node
+X 16 search_tree_package_test.adb
+8U11*Search_Tree_Package_Test 8b11 57l5 57t29
+10U15 Put_Int 10>24 13r64 22b15 25l9 25t16
+10i24 X{integer} 22b24 24r14
+13K13 Int_Tree[14|31] 14r9
+18r5 T{14|33R10[13]} 28m17 31m20 37m20 41r46 42r46 45r27 54r17 55m16 56r17
+19i5 J{integer} 29m5 30r11 31r17 32m9 32r14 35m5 36r11 37r17 38m9 38r14
+20p5 P{14|32P10[13]} 45m13
+43i9 I{integer} 45r24 46r18 50r26
+

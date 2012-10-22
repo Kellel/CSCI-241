@@ -1,0 +1,40 @@
+V "GNAT Lib v4.6"
+P ZX
+R nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnn
+
+U avl_tree%b		avl_tree.adb		04bcd8f0 NE OO PK IL
+
+U avl_tree%s		avl_tree.ads		d090e404 EE OO PK IL
+W system%s		system.ads		system.ali
+W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.standard_library%s  s-stalib.adb	s-stalib.ali
+
+D ada.ads		20110715060658 3ffc8e18
+D a-unccon.ads		20110715060658 f9eb8f06
+D avl_tree.ads		20121022210424 d090e404
+D avl_tree.adb		20121022215010 d42c3cf4
+D system.ads		20110715060713 981f3aca
+D s-exctab.ads		20110715060704 66e51330
+D s-stalib.ads		20110715060705 c4241c00
+X 3 avl_tree.ads
+4K9*avl_tree 38l5 38e13 4|1b14 23l5 23t13
+5P10*Tree_Ptr(24R10) 14r48 25c10 29r20 35r23 36r23 4|3r56
+6R10*Avl_Tree 14r30 16r37 18r37 19r37 27c10 30e19 4|3r38 8r48 13r48 18r34
+13V15*Find{5P10} 13>26 14>26 4|3b14 6l9 6t13
+13i26 X{natural} 4|3b21
+14r26 T{6R10} 4|3b34
+15U15*Insert 15>26 16=26 4|8b15 11l9 11t15
+15i26 X{natural} 4|8b24
+16r26 T{6R10} 4|8b37
+17U15*Delete 17>26 18=26 4|13b15 16l9 16t15
+17i26 X{natural} 4|13b24
+18r26 T{6R10} 4|13b37
+19U15*Print 19=26 4|18b15 21l9 21t14
+19r26 T{6R10} 4|18b23
+21X5*Node_Error
+24R10 Tree_Node 25r29 32c10 37e19
+29p13*Root{5P10}
+34i13*Element{natural}
+35p13*Left{5P10}
+36p13*Right{5P10}
+

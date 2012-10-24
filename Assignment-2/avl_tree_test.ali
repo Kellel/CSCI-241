@@ -3,7 +3,7 @@ M P W=b
 P SS ZX
 R nnnvnnnnnnvnnnnnnnvnnvnnnnvnnnnvnnnnnvnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
 
-U avl_tree_test%b	avl_tree_test.adb	23357c1e NE OO SU IL
+U avl_tree_test%b	avl_tree_test.adb	22e57ecd NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -13,6 +13,7 @@ W avl_tree%s		avl_tree.adb		avl_tree.ali
 W system%s		system.ads		system.ali
 W system.concat_3%s	s-conca3.adb		s-conca3.ali
 W system.concat_5%s	s-conca5.adb		s-conca5.ali
+W system.concat_7%s	s-conca7.adb		s-conca7.ali
 W system.exception_table%s  s-exctab.adb	s-exctab.ali
 W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.soft_links%s	s-soflin.adb		s-soflin.ali
@@ -29,14 +30,15 @@ D a-tags.ads		20110715060658 c7695348
 D a-textio.ads		20110715060658 386df5d4
 D a-tiinio.ads		20110715060658 aa04e5d6
 D a-unccon.ads		20110715060658 f9eb8f06
-D avl_tree.ads		20121024112902 0968b416
-D avl_tree.adb		20121024151919 5b7b94ec
-D avl_tree_test.adb	20121024152053 dc1641ac
+D avl_tree.ads		20121024154428 f39df2ea
+D avl_tree.adb		20121024162029 828cfa19
+D avl_tree_test.adb	20121024161818 27330583
 D interfac.ads		20110715060702 f77d8799
 D i-cstrea.ads		20110715060702 1bd72c32
 D system.ads		20110715060713 981f3aca
 D s-conca3.ads		20110715060704 762a026a
 D s-conca5.ads		20110715060704 1039cea1
+D s-conca7.ads		20110715060704 1c57f31a
 D s-crtl.ads		20110715060704 ac77b159
 D s-exctab.ads		20110715060704 66e51330
 D s-ficobl.ads		20110715060704 443b9d66
@@ -62,13 +64,13 @@ X 10 a-tiinio.ads
 X 12 avl_tree.ads
 10k9*avl_tree 40e13 14|1w6 11r24
 12R10 Search_Tree 14|12r16[11]
-19U15 Insert 14|14s9[11]
-23U15 Print 14|15s9[11]
+19U15 Insert 14|14s9[11] 15s9[11] 16s9[11] 17s9[11]
+23U15 Print 14|18s9[11]
 X 14 avl_tree_test.adb
-4U11*avl_tree_test 4b11 16l5 16t18
+4U11*avl_tree_test 4b11 19l5 19t18
 5V14 Put_Natural{string} 5b14 5>28 10l9 10t20 11r48
 5i28 X{natural} 8r45
 6a9 Num_String{string} 8m33 9r16
-11K13 Avl[12|10] 12r12 14r5 15r5
-12r5 Tree{12|12R10[11]} 14m19 15m15
+11K13 Avl[12|10] 12r12 14r5 15r5 16r5 17r5 18r5
+12r5 Tree{12|12R10[11]} 14m19 15m19 16m19 17m19 18m15
 

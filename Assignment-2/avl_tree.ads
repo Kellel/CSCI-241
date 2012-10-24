@@ -2,6 +2,7 @@
 -- Note The Name Avl_Tree is **NOT** acceptable Note
 
 with Ada.Text_IO;
+with Ada.Integer_Text_IO;
 
 generic
     type Element_Type is private;
@@ -21,7 +22,7 @@ package avl_tree is
     procedure Delete   ( X : Element_Type; 
                          T : in out Search_Tree );
     procedure Print    ( T : in out Search_Tree);
-
+    Item_Not_Found : exception; -- value to tell the user a node doesnt exist
     Node_Error : exception; -- Error raised when a node doesn't exist
 
 private

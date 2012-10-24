@@ -1,9 +1,9 @@
 V "GNAT Lib v4.6"
 M P W=b
 P SS ZX
-R nnnnnnnnnnnnnnnnnnvnnvnnnvvnnnnnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn
+R nnnvnnnnnnvnnnnnnnvnnvnnnvvnnnnvnnnnnvnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
 
-U main%b		main.adb		76fcf851 NE OO SU IL
+U main%b		main.adb		b0f46cb9 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -11,7 +11,11 @@ W ada.tags%s		a-tags.adb		a-tags.ali
 W ada.text_io%s		a-textio.adb		a-textio.ali
 W avl_tree%s		avl_tree.adb		avl_tree.ali
 W system%s		system.ads		system.ali
+W system.concat_3%s	s-conca3.adb		s-conca3.ali
+W system.concat_5%s	s-conca5.adb		s-conca5.ali
+W system.concat_7%s	s-conca7.adb		s-conca7.ali
 W system.exception_table%s  s-exctab.adb	s-exctab.ali
+W system.secondary_stack%s  s-secsta.adb	s-secsta.ali
 W system.soft_links%s	s-soflin.adb		s-soflin.ali
 W system.standard_library%s  s-stalib.adb	s-stalib.ali
 
@@ -26,11 +30,15 @@ D a-tags.ads		20110715060658 c7695348
 D a-textio.ads		20110715060658 386df5d4
 D a-tiinio.ads		20110715060658 aa04e5d6
 D a-unccon.ads		20110715060658 f9eb8f06
-D avl_tree.ads		20121022221049 d090e404
+D avl_tree.ads		20121024185320 e62d2676
+D avl_tree.adb		20121024225738 ef8227f6
 D interfac.ads		20110715060702 f77d8799
 D i-cstrea.ads		20110715060702 1bd72c32
-D main.adb		20121022214917 684a6025
+D main.adb		20121024185256 98ff36bf
 D system.ads		20110715060713 981f3aca
+D s-conca3.ads		20110715060704 762a026a
+D s-conca5.ads		20110715060704 1039cea1
+D s-conca7.ads		20110715060704 1c57f31a
 D s-crtl.ads		20110715060704 ac77b159
 D s-exctab.ads		20110715060704 66e51330
 D s-ficobl.ads		20110715060704 443b9d66
@@ -48,31 +56,44 @@ D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
 X 1 ada.ads
-16K9*Ada 19e8 15|2r6 2r23 3r6 14r9 15r9 19r17 22r17 25r17 27r17
+16K9*Ada 19e8 16|2r6 2r23 3r6 9r9 22r9 23r9 27r17 30r17 33r17 35r17 43r25
+. 52r25 57r17 67r17
 X 5 a-inteio.ads
-18K13*Integer_Text_IO[10|45] 15|3w10 19r21 22r21 25r21 27r21
+18K13*Integer_Text_IO[10|45] 16|3w10 9r13 27r21 30r21 33r21 35r21
 X 9 a-textio.ads
-49K13*Text_IO 472e16 15|2w10 2r27 14r13 15r13
-167U14*New_Line 15|23s17 28s17
-243U14*Put 15|14s21 21s17 26s17
-250U14*Get_Line 15|15s21
-264U14*Put_Line 15|31s17 45s9 47s9
-298X4*End_Error 15|44r10
+49K13*Text_IO 472e16 16|2w10 2r27 22r13 23r13 43r29 52r29 57r21 67r21
+167U14*New_Line 16|31s17 36s17
+243U14*Put 16|22s21 29s17 34s17 52s37
+250U14*Get_Line 16|23s21
+264U14*Put_Line 16|43s37 46s17 57s29 67s29 72s9
+298X4*End_Error 16|66r18
+299X4*Data_Error 16|66r30
 X 10 a-tiinio.ads
-65U14*Put 15|22s37[5|18] 27s37[5|18]
-70U14*Get 15|19s37[5|18] 25s37[5|18]
-71s7 From{string} 15|19r41[5|18] 25r41[5|18]
-72i7 Item{integer} 15|19r79[5|18] 25r79[5|18]
-73i7 Last{positive} 15|19r92[5|18] 25r92[5|18]
+65U14*Put 16|30s37[5|18] 35s37[5|18]
+70U14*Get 16|27s37[5|18] 33s37[5|18]
+71s7 From{string} 16|27r41[5|18] 33r41[5|18]
+72i7 Item{integer} 16|27r79[5|18] 33r79[5|18]
+73i7 Last{positive} 16|27r92[5|18] 33r92[5|18]
+75U14*Put 16|9s29[5|18]
 X 12 avl_tree.ads
-4K9*avl_tree 38e13 15|1w6
-X 15 main.adb
-5U11*main 5b11 48l5 48t9
-6X5 Exit_Loop 34r23 46r10
-7X5 Input_Error 36r23 44r22
-8U15 Get_Action 8b15 38l9 38t19 41s9
-9a9 Input{string} 15m31 16r21 16r27 19r47 19r53 25r47 25r53
-10i9 Last{positive} 15m38 19r72 19m98 25r72 25m98
-11e9 Operator{character} 16m9 17r14
-12i9 Value{integer} 19m85 22r41 25m85 27r41
+11k9*avl_tree 41e13 16|1w6 12r24
+13R10 Search_Tree 16|13r16[12]
+20U15 Insert 16|28s21[12]
+22U15 Delete 16|40s25[12]
+24U15 Print 16|49s25[12]
+25X5 Item_Not_Found 16|42r30[12] 51r30[12]
+X 16 main.adb
+5U11*main 5b11 73l5 73t9
+6V14 To_String{string} 6b14 6>26 11l9 11t18 12r47
+6i26 X{natural} 9r45
+7a9 Num_String{string} 9m33 10r16
+12K13 Avl[12|11] 13r12 28r17 40r21 42r26 49r21 51r26
+13r5 Tree{12|13R10[12]} 28m44 40m48 49m33
+14X5 Exit_Loop 55r23 71r10
+15X5 Input_Error
+16U15 Get_Action 16b15 59l9 59t19 64s13
+17a9 Input{string} 23m31 24r21 24r27 27r47 27r53 33r47 33r53
+18i9 Last{positive} 23m38 27r72 27m98 33r72 33m98
+19e9 Operator{character} 24m9 25r14
+20i9 Value{integer} 27m85 28r36 30r41 33m85 35r41 40r40
 

@@ -12,5 +12,8 @@ procedure avl_tree_test is
     Tree : Avl.Search_Tree;
 begin
     Avl.Insert(5, Tree );
+    Avl.Insert(3, Tree );
+    Avl.Insert(6, Tree );
+    Avl.Insert(4, Tree );
     Avl.Print(Tree);
 end avl_tree_test;

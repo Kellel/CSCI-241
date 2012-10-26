@@ -3,7 +3,7 @@ M P W=b
 P SS ZX
 R nnnvnnnnnnvnnnnnnnvnnvnnnvvnnnnvnnnnnvnnnvnnvnnnnnnnnnnnnnvnnnnnnnnnnnnnnnnnnnnn
 
-U main%b		main.adb		b0f46cb9 NE OO SU IL
+U main%b		main.adb		998fc396 NE OO SU IL
 W ada%s			ada.ads			ada.ali
 W ada.exceptions%s	a-except.adb		a-except.ali
 W ada.integer_text_io%s	a-inteio.ads		a-inteio.ali
@@ -34,7 +34,7 @@ D avl_tree.ads		20121026085901 e62d2676
 D avl_tree.adb		20121026131832 5ac1caee
 D interfac.ads		20110715060702 f77d8799
 D i-cstrea.ads		20110715060702 1bd72c32
-D main.adb		20121024185256 98ff36bf
+D main.adb		20121026134433 b1849990
 D system.ads		20110715060713 981f3aca
 D s-conca3.ads		20110715060704 762a026a
 D s-conca5.ads		20110715060704 1039cea1
@@ -56,44 +56,45 @@ D s-traent.ads		20110715060707 5221ee41
 D s-unstyp.ads		20110715060707 6ae15c76
 D s-wchcon.ads		20110715060708 bfeb2e3d
 X 1 ada.ads
-16K9*Ada 19e8 16|2r6 2r23 3r6 9r9 22r9 23r9 27r17 30r17 33r17 35r17 43r25
-. 52r25 57r17 67r17
+16K9*Ada 19e8 16|11r6 11r23 12r6 24r9 44r9 46r9 53r17 61r21 66r25 71r17 79r21
+. 84r25 97r25 104r17 108r13
 X 5 a-inteio.ads
-18K13*Integer_Text_IO[10|45] 16|3w10 9r13 27r21 30r21 33r21 35r21
+18K13*Integer_Text_IO[10|45] 16|12w10 24r13 53r21 61r25 71r21 79r25
 X 9 a-textio.ads
-49K13*Text_IO 472e16 16|2w10 2r27 22r13 23r13 43r29 52r29 57r21 67r21
-167U14*New_Line 16|31s17 36s17
-243U14*Put 16|22s21 29s17 34s17 52s37
-250U14*Get_Line 16|23s21
-264U14*Put_Line 16|43s37 46s17 57s29 67s29 72s9
-298X4*End_Error 16|66r18
-299X4*Data_Error 16|66r30
+49K13*Text_IO 472e16 16|11w10 11r27 44r13 46r13 66r29 84r29 97r29 104r21
+. 108r17
+167U14*New_Line 16|62s21 80s21
+243U14*Put 16|44s21 60s21 78s21
+250U14*Get_Line 16|46s21
+264U14*Put_Line 16|66s37 84s37 88s17 97s37 104s29 108s25 118s9
+298X4*End_Error 16|107r14
+299X4*Data_Error 16|107r26
 X 10 a-tiinio.ads
-65U14*Put 16|30s37[5|18] 35s37[5|18]
-70U14*Get 16|27s37[5|18] 33s37[5|18]
-71s7 From{string} 16|27r41[5|18] 33r41[5|18]
-72i7 Item{integer} 16|27r79[5|18] 33r79[5|18]
-73i7 Last{positive} 16|27r92[5|18] 33r92[5|18]
-75U14*Put 16|9s29[5|18]
+65U14*Put 16|61s41[5|18] 79s41[5|18]
+70U14*Get 16|53s37[5|18] 71s37[5|18]
+71s7 From{string} 16|53r41[5|18] 71r41[5|18]
+72i7 Item{integer} 16|53r79[5|18] 71r79[5|18]
+73i7 Last{positive} 16|53r92[5|18] 71r92[5|18]
+75U14*Put 16|24s29[5|18]
 X 12 avl_tree.ads
-11k9*avl_tree 41e13 16|1w6 12r24
-13R10 Search_Tree 16|13r16[12]
-20U15 Insert 16|28s21[12]
-22U15 Delete 16|40s25[12]
-24U15 Print 16|49s25[12]
-25X5 Item_Not_Found 16|42r30[12] 51r30[12]
+11k9*avl_tree 41e13 16|10w6 29r24
+13R10 Search_Tree 16|31r16[29]
+20U15 Insert 16|58s25[29]
+22U15 Delete 16|76s25[29]
+24U15 Print 16|93s25[29]
+25X5 Item_Not_Found 16|65r30[29] 83r30[29] 96r30[29]
 X 16 main.adb
-5U11*main 5b11 73l5 73t9
-6V14 To_String{string} 6b14 6>26 11l9 11t18 12r47
-6i26 X{natural} 9r45
-7a9 Num_String{string} 9m33 10r16
-12K13 Avl[12|11] 13r12 28r17 40r21 42r26 49r21 51r26
-13r5 Tree{12|13R10[12]} 28m44 40m48 49m33
-14X5 Exit_Loop 55r23 71r10
-15X5 Input_Error
-16U15 Get_Action 16b15 59l9 59t19 64s13
-17a9 Input{string} 23m31 24r21 24r27 27r47 27r53 33r47 33r53
-18i9 Last{positive} 23m38 27r72 27m98 33r72 33m98
-19e9 Operator{character} 24m9 25r14
-20i9 Value{integer} 27m85 28r36 30r41 33m85 35r41 40r40
+15U11*main 15b11 119l5 119t9
+18V14 To_String{string} 18b14 18>26 26l9 26t18 29r47
+18i26 X{natural} 24r45
+21a9 Num_String{string} 24m33 25r16
+29K13 Avl[12|11] 31r12 58r21 65r26 76r21 83r26 93r21 96r26
+31r5 Tree{12|13R10[29]} 58m48 76m48 93m33
+33X5 Exit_Loop 101r23 117r10
+35X5 Input_Error
+37U15 Get_Action 37b15 109l9 109t19 113s9
+38a9 Input{string} 46m31 48r21 48r27 53r47 53r53 71r47 71r53
+39i9 Last{positive} 46m38 53r72 53m98 71r72 71m98
+40e9 Operator{character} 48m9 49r14
+41i9 Value{integer} 53m85 58r40 61r45 71m85 76r40 79r45
 

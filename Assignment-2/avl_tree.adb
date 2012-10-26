@@ -15,6 +15,19 @@ package body avl_tree is
             end Height;
         begin
             return Height( Ptr.Left ) - Height(Ptr.Right);
+        exception
+            when Constraint_Error =>
+                if Ptr = null then
+                    return 0;
+                else
+                    if Ptr.Left = null and Ptr.Right = null then
+                        return 0;
+                    elsif Ptr.Left = null then
+                        return 0 - Height(Ptr.Right);
+                    else
+                        return Height(Ptr.Left);
+                    end if;
+                end if;
         end BF;
         function Right ( Ptr : Node_Ptr ) return Node_Ptr is
             A : Node_Ptr := T;
@@ -102,10 +115,11 @@ package body avl_tree is
                 raise Node_Error;
             elsif X < Ptr.Element then
                 Ptr.Left := insert(X, Ptr.Left);
+                Balance(Ptr.Left);
             else
                 Ptr.Right := insert(X, Ptr.Right);
+                Balance(Ptr.Right);
             end if;
-            Balance ( Ptr );
             return Ptr;
         exception
             -- A constraint_error is thrown when a null pointer is referenced
@@ -119,6 +133,7 @@ package body avl_tree is
         else
             T.Root := new Tree_Node'(X,null,null);
         end if;
+        Balance (T.Root);
     end Insert;
 
     procedure Delete ( X : Element_Type; T : in out Search_Tree ) is
@@ -128,31 +143,36 @@ package body avl_tree is
                 Ptr.Left := Append_Min(Left, Ptr.Left);
                 return Ptr;
             exception
-                when Constraint_Error =>
+                when Constraint_Error => 
                     return Left;
             end Append_Min;
             Left : Node_Ptr;
         begin
             if Ptr.Element = X then
-                if Ptr.Left = null then
+                if Ptr.Left = null and Ptr.Right = null then
+                    return null;
+                elsif Ptr.Left = null then
                     return Ptr.Right;
                 else
                     Left := Ptr.Left;
                     return Append_Min(Left, Ptr.Right);
                 end if;
-            elsif Ptr.Element < X then
+            elsif X < Ptr.Element then
                 Ptr.Left := delete(X, Ptr.Left);
+                Balance(Ptr.Left);
                 return Ptr;
             else
                 Ptr.Right := delete(X, Ptr.Right);
+                Balance(Ptr.Right);
                 return Ptr;
             end if;
         end delete;
     begin
         T.Root := delete( X , T.Root );
-    exception
-        when Constraint_Error =>
-            raise Item_Not_Found;
+        Balance( T.Root );
+    --exception
+      --  when Constraint_Error =>
+        --    raise Item_Not_Found;
     end Delete;
 
     -- Will Print a Given Binary Tree

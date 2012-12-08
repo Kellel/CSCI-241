@@ -23,9 +23,6 @@ package body Generic_Stack is
             Pop(Output, Tmp);
             Number := Number + 1;
         end loop;
-        
-        -- never happens
-        return 0;
     exception
         when Empty =>
             return Number;

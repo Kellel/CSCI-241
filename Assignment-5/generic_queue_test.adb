@@ -7,6 +7,9 @@ procedure generic_queue_test is
 begin
     Int_Queue.Push(1, Queue);
     Int_Queue.Push(2, Queue);
+    Int_Queue.Push(4, Queue);
+    Int_Queue.Push(3, Queue);
+    Ada.Text_IO.Put_Line(Natural'Image(Int_Queue.Count(Queue)));
     loop
         declare
             output : Integer;

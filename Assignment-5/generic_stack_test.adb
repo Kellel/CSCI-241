@@ -2,7 +2,7 @@ with generic_stack;
 with Ada.Text_IO;
 
 procedure generic_stack_test is
-    package Int_Stack is new generic_stack(Integer);
+    package Int_Stack is new generic_Stack(Integer);
     Stack : Int_Stack.Stack;
 begin
     Int_Stack.Push(1,Stack);
@@ -16,7 +16,7 @@ begin
             Int_Stack.Pop(output, Stack);
             Ada.Text_IO.Put(Integer'Image(output));
         exception
-            when Constraint_Error =>
+            when Int_Stack.Empty =>
                 exit;
         end;
     end loop;
